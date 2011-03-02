@@ -9,8 +9,10 @@ LIBS += -L../backend \
         -L../kernel \
         -L../frontend
 
-SOURCES += application.cpp
-HEADERS += application.h
+SOURCES += application.cpp \
+           userinterface.cpp
+HEADERS += application.h \
+           userinterface.h
 
 DESTDIR = ../..
 

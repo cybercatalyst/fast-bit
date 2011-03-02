@@ -3,10 +3,12 @@
 FastBit::FastBit(int argc, char** argv)
 	: QApplication(argc, argv)
 {
+	qDebug("Starting application..");
 }
 
 FastBit::~FastBit()
 {
+	qDebug("Cleaning up..");
 }
 
 int main(int argc, char* argv[])
