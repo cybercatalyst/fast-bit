@@ -1,5 +1,9 @@
 #include "guiinterface.h"
 #include <QMessageBox>
+#include <QMenuBar>
+#include <QToolBar>
+#include <QTextEdit>
+#include <QPushButton>
 
 GuiInterface::GuiInterface()
 {
@@ -25,5 +29,10 @@ void GuiInterface::message(std::string message)
 void GuiInterface::setUpInterface()
 {
     mainWindow = new QMainWindow();
-    mainWindow->show();
+    mainWindow->setCentralWidget(new QTextEdit());
+    QToolBar* mainToolBar = mainWindow->addToolBar("test");
+    mainToolBar->addWidget(new QPushButton("Hallo2"));
+    mainWindow->menuBar()->addMenu("Test");
+
+    mainWindow->showMaximized();
 }

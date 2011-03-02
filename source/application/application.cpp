@@ -7,7 +7,6 @@ FastBit::FastBit()
 
 {
     Frontend::userInterface().information("Application launched.");
-    Frontend::userInterface().message("This software is not meant for daily use.");
 }
 
 FastBit::~FastBit()

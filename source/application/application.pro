@@ -17,4 +17,11 @@ SOURCES += application.cpp \
 HEADERS += application.h \
            userinterface.h
 
+DESTDIR = ../..
+
+# Hack to set the dependecies - usually this should not be needed..
+PRE_TARGETDEPS += ../backend/libbackend.a \
+                  ../kernel/libkernel.a \
+                  ../frontend/libfrontend.a
+
 CODECFORTR = UTF-8
