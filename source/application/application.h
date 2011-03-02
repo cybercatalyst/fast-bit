@@ -1,12 +1,10 @@
 #ifndef APPLICATION_H
 #define APPLICATION_H
 
-#include <QApplication>
-
-class FastBit : public QApplication
+class FastBit
 {
 	public:
-		FastBit(int argc, char** argv);
+                FastBit();
 		~FastBit();
 
 	private:
