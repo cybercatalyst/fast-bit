@@ -1,15 +1,15 @@
 #include "application.h"
 #include "frontend.h"
+#include <iostream>
 
 FastBit::FastBit(int argc, char** argv)
 	: QApplication(argc, argv)
 {
-	Frontend::userInterface().information("Starting application..");
+    std::cout << "Application launched." << std::endl;
 }
 
 FastBit::~FastBit()
 {
-	qDebug("Cleaning up..");
 }
 
 int main(int argc, char* argv[])

@@ -3,6 +3,6 @@
 
 UserInterface& Frontend::userInterface()
 {
-	static GuiInterface guiInterface;
+        static GuiInterface guiInterface;
 	return guiInterface;
 }
