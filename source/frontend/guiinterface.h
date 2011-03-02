@@ -11,6 +11,7 @@ class GuiInterface : public UserInterface
         ~GuiInterface();
 
         void information(std::string message);
+        void message(std::string message);
 };
 
 #endif // GUI_INTERFACE_H

@@ -7,11 +7,12 @@ FastBit::FastBit()
 
 {
     Frontend::userInterface().information("Application launched.");
+    Frontend::userInterface().message("This software is not meant for daily use.");
 }
 
 FastBit::~FastBit()
 {
-    std::cout << "Cleaning up." << std::endl;
+    Frontend::userInterface().information("Cleaning up.");
 }
 
 int main(int argc, char* argv[])
