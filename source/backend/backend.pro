@@ -5,5 +5,4 @@ TARGET = backend
 SOURCES += backend.cpp
 HEADERS += backend.h
 
-DESTDIR = ../..
 CODECFORTR = UTF-8

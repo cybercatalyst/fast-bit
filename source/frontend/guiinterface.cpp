@@ -4,6 +4,7 @@
 GuiInterface::GuiInterface()
 {
     std::cout << "Constructing GUI Interface." << std::endl;
+    setUpInterface();
 }
 
 GuiInterface::~GuiInterface()
@@ -19,4 +20,10 @@ void GuiInterface::information(std::string message)
 void GuiInterface::message(std::string message)
 {
     QMessageBox::information(0, "Message", QString(message.c_str()), QMessageBox::Ok);
+}
+
+void GuiInterface::setUpInterface()
+{
+    mainWindow = new QMainWindow();
+    mainWindow->show();
 }

@@ -9,5 +9,4 @@ HEADERS += frontend.h \
 
 TARGET = frontend
 
-DESTDIR = ../..
 CODECFORTR = UTF-8

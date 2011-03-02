@@ -17,6 +17,4 @@ SOURCES += application.cpp \
 HEADERS += application.h \
            userinterface.h
 
-DESTDIR = ../..
-
 CODECFORTR = UTF-8
