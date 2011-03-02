@@ -7,7 +7,10 @@ TEMPLATE = app
 
 LIBS += -L../backend \
         -L../kernel \
-        -L../frontend
+        -L../frontend \
+	-lbackend \
+	-lkernel \
+	-lfrontend
 
 SOURCES += application.cpp \
            userinterface.cpp

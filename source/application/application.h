@@ -1,3 +1,6 @@
+#ifndef APPLICATION_H
+#define APPLICATION_H
+
 #include <QApplication>
 
 class FastBit : public QApplication
@@ -8,3 +11,5 @@ class FastBit : public QApplication
 
 	private:
 };
+
+#endif // APPLICATION_H

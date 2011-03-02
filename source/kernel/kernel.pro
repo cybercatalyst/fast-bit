@@ -1,8 +1,8 @@
 include(../common.pri)
 
+TARGET = kernel
+
 SOURCES += kernel.cpp
 HEADERS += kernel.h
-
-TARGET = fast-bit
 
 CODECFORTR = UTF-8

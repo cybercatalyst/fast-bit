@@ -1,7 +1,9 @@
 include(../common.pri)
 
-SOURCES += frontend.cpp
-HEADERS += frontend.h
+SOURCES += frontend.cpp \
+	   guiinterface.cpp
+HEADERS += frontend.h \
+	   guiinterface.h
 
 TARGET = frontend
 
