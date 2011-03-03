@@ -1,0 +1,16 @@
+#ifndef EXTENSION_H
+#define EXTENSION_H
+
+#include <string>
+
+/**
+  * Declares the extension interface.
+  */
+class Extension
+{
+public:
+    virtual string name() = 0;
+    virtual string version() = 0;
+};
+
+#endif // EXTENSION_H

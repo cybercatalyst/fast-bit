@@ -2,7 +2,7 @@ include(../extension.pri)
 
 TARGET = photographic
 
-SOURCES +=
-HEADERS +=
+SOURCES += photographic.cpp
+HEADERS += photographic.h
 
 CODECFORTR = UTF-8

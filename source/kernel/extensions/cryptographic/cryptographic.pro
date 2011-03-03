@@ -2,7 +2,7 @@ include(../extension.pri)
 
 TARGET = cryptographic
 
-SOURCES +=
-HEADERS +=
+SOURCES += cryptographic.cpp
+HEADERS += cryptographic.h
 
 CODECFORTR = UTF-8
