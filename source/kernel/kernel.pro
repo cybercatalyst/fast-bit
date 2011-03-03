@@ -2,7 +2,9 @@ include(../common.pri)
 
 TARGET = kernel
 
-SOURCES += kernel.cpp
-HEADERS += kernel.h
+SOURCES += genericcontroller.cpp \
+           kernel.cpp
+HEADERS += genericcontroller.h \
+           kernel.h
 
 CODECFORTR = UTF-8

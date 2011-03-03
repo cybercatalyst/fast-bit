@@ -1,5 +1,11 @@
+#ifndef KERNEL_H
+#define KERNEL_H
+
+#include "controller.h"
 class Kernel
 {
 public:
-    static const int moduleId = 2;
+    static Controller& controller();
 };
+
+#endif // KERNEL_H

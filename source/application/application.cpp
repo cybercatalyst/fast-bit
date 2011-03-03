@@ -1,5 +1,6 @@
 #include "application.h"
 #include "frontend.h"
+#include "kernel.h"
 #include <iostream>
 #include <QApplication>
 
@@ -7,6 +8,7 @@ FastBit::FastBit()
 
 {
     Frontend::userInterface().information("Application launched.");
+    Kernel::controller().boot();
 }
 
 FastBit::~FastBit()
