@@ -29,7 +29,11 @@ void GuiInterface::message(std::string message)
 void GuiInterface::setUpInterface()
 {
     mainWindow = new QMainWindow();
-    mainWindow->setCentralWidget(new QTextEdit());
+
+    tabWidget = new QTabWidget();
+    tabWidget->addTab(new QWidget(), "Test");
+    mainWindow->setCentralWidget(tabWidget);
+
     QToolBar* mainToolBar = mainWindow->addToolBar("test");
     mainToolBar->addWidget(new QPushButton("Hallo2"));
     mainWindow->menuBar()->addMenu("Test");

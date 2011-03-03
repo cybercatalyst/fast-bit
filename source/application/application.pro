@@ -13,8 +13,10 @@ LIBS += -L../backend \
 	-lfrontend
 
 SOURCES += application.cpp \
+           controller.cpp \
            userinterface.cpp
 HEADERS += application.h \
+           controller.h \
            userinterface.h
 
 DESTDIR = ../..

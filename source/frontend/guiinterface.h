@@ -4,6 +4,7 @@
 #include "userinterface.h"
 #include <iostream>
 #include <QMainWindow>
+#include <QTabWidget>
 
 class GuiInterface : public UserInterface
 {
@@ -18,6 +19,7 @@ private:
     void setUpInterface();
 
     QMainWindow* mainWindow;
+    QTabWidget* tabWidget;
 };
 
 #endif // GUI_INTERFACE_H

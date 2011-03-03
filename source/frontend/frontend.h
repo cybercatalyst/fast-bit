@@ -4,9 +4,8 @@
 #include "userinterface.h"
 class Frontend
 {
-	public:
-	static const int moduleId = 1;
-	static UserInterface& userInterface();
+public:
+    static UserInterface& userInterface();
 };
 
 #endif // FRONTEND_H
