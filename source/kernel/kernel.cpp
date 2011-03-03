@@ -3,6 +3,6 @@
 
 Controller& Kernel::controller()
 {
-        static GenericController genericController;
-        return genericController;
+    static GenericController genericController;
+    return genericController;
 }

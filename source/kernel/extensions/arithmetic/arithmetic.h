@@ -6,6 +6,9 @@
 class Arithmetic : public Extension
 {
 public:
+    Arithmetic();
+    ~Arithmetic();
+
     string name() { return "Arithmetic"; }
     string version() { return "0.1"; }
 };
