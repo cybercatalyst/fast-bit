@@ -1,5 +1,5 @@
 #Includes common configuration for all subdirectory .pro files.
-INCLUDEPATH += ../../kernel
+INCLUDEPATH += ../..
 
 #WARNINGS += -Wall
 

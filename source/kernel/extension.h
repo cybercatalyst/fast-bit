@@ -3,6 +3,8 @@
 
 #include <string>
 
+using namespace std;
+
 /**
   * Declares the extension interface.
   */
