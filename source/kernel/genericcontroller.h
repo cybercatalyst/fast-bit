@@ -10,6 +10,8 @@ public:
     ~GenericController();
 
     void boot();
+
+private:
 };
 
 #endif // GENERIC_CONTROLLER_H

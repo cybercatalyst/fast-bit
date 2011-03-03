@@ -5,8 +5,9 @@ CONFIG += ordered
 CONFIG -= flat
 
 SUBDIRS = backend \
+          frontend \
           kernel \
-          frontend
+	  kernel/extensions
 
 # Application must be last in order.
 SUBDIRS += application
