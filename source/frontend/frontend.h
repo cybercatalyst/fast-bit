@@ -1,7 +1,7 @@
 #ifndef FRONTEND_H
 #define FRONTEND_H
 
-#include "userinterface.h"
+#include "../application/userinterface.h"
 class Frontend
 {
 public:

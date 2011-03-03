@@ -1,5 +1,6 @@
 #Includes common configuration for all subdirectory .pro files.
-INCLUDEPATH += ../..
+INCLUDEPATH += ../.. \
+               ../../../frontend
 
 #WARNINGS += -Wall
 

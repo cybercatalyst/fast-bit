@@ -6,6 +6,8 @@
 class Misc : public Extension
 {
 public:
+    Misc();
+    ~Misc();
     string name() { return "Misc"; }
     string version() { return "0.1"; }
 };

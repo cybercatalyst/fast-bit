@@ -11,8 +11,6 @@ using namespace std;
 class Extension
 {
 public:
-    Extension();
-    ~Extension();
 
     virtual string name() = 0;
     virtual string version() = 0;

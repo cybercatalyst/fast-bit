@@ -6,6 +6,8 @@
 class Cryptographic : public Extension
 {
 public:
+    Cryptographic();
+    ~Cryptographic();
     string name() { return "Cryptographic"; }
     string version() { return "0.1"; }
 };
