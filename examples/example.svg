@@ -1,0 +1,42 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN" 
+"http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg width="600" height="600" xmlns="http://www.w3.org/2000/svg" 
+xmlns:xlink="http://www.w3.org/1999/xlink">
+<rect x="0" y="0" width="601" height="601" fill="rgb(0,0,0)" opacity="1" stroke="none" />
+<rect x="50" y="50" width="50" height="50" fill="rgb(100,100,100)" opacity="1" stroke="none" />
+<line x1="600" y1="300" x2="300.089" y2="600" style="stroke:rgb(8,247,100); opacity:0.0313725; stroke-width:0.75;" />
+<line x1="598.501" y1="329.95" x2="270.138" y2="598.51" style="stroke:rgb(16,239,100); opacity:0.0627451; stroke-width:0.75;" />
+<line x1="594.02" y1="359.601" x2="240.486" y2="594.038" style="stroke:rgb(24,231,100); opacity:0.0941176; stroke-width:0.75;" />
+<line x1="586.601" y1="388.656" x2="211.429" y2="586.627" style="stroke:rgb(32,223,100); opacity:0.12549; stroke-width:0.75;" />
+<line x1="576.318" y1="416.826" x2="183.256" y2="576.353" style="stroke:rgb(40,215,100); opacity:0.156863; stroke-width:0.75;" />
+<line x1="563.275" y1="443.828" x2="156.25" y2="563.317" style="stroke:rgb(48,207,100); opacity:0.188235; stroke-width:0.75;" />
+<line x1="547.601" y1="469.393" x2="130.681" y2="547.651" style="stroke:rgb(56,199,100); opacity:0.219608; stroke-width:0.75;" />
+<line x1="529.453" y1="493.265" x2="106.803" y2="529.51" style="stroke:rgb(64,191,100); opacity:0.25098; stroke-width:0.75;" />
+<line x1="509.012" y1="515.207" x2="84.8551" y2="509.076" style="stroke:rgb(72,183,100); opacity:0.282353; stroke-width:0.75;" />
+<line x1="486.483" y1="534.998" x2="65.0572" y2="486.553" style="stroke:rgb(80,175,100); opacity:0.313725; stroke-width:0.75;" />
+<line x1="462.091" y1="552.441" x2="47.6067" y2="462.165" style="stroke:rgb(88,167,100); opacity:0.345098; stroke-width:0.75;" />
+<line x1="436.079" y1="567.362" x2="32.6781" y2="436.158" style="stroke:rgb(96,159,100); opacity:0.376471; stroke-width:0.75;" />
+<line x1="408.707" y1="579.612" x2="20.4205" y2="408.79" style="stroke:rgb(104,151,100); opacity:0.407843; stroke-width:0.75;" />
+<line x1="380.25" y1="589.067" x2="10.9563" y2="380.335" style="stroke:rgb(112,143,100); opacity:0.439216; stroke-width:0.75;" />
+<line x1="350.99" y1="595.635" x2="4.3802" y2="351.078" style="stroke:rgb(120,135,100); opacity:0.470588; stroke-width:0.75;" />
+<line x1="321.221" y1="599.248" x2="0.757806" y2="321.31" style="stroke:rgb(128,127,100); opacity:0.501961; stroke-width:0.75;" />
+<line x1="291.24" y1="599.872" x2="0.125336" y2="291.329" style="stroke:rgb(136,119,100); opacity:0.533333; stroke-width:0.75;" />
+<line x1="261.347" y1="597.499" x2="2.48912" y2="261.435" style="stroke:rgb(144,111,100); opacity:0.564706; stroke-width:0.75;" />
+<line x1="231.839" y1="592.154" x2="7.82553" y2="231.926" style="stroke:rgb(152,103,100); opacity:0.596078; stroke-width:0.75;" />
+<line x1="203.013" y1="583.89" x2="16.0812" y2="203.097" style="stroke:rgb(160,95,100); opacity:0.627451; stroke-width:0.75;" />
+<line x1="175.156" y1="572.789" x2="27.1738" y2="175.237" style="stroke:rgb(168,87,100); opacity:0.658824; stroke-width:0.75;" />
+<line x1="148.546" y1="558.963" x2="40.9923" y2="148.623" style="stroke:rgb(176,79,100); opacity:0.690196; stroke-width:0.75;" />
+<line x1="123.45" y1="542.549" x2="57.3988" y2="123.522" style="stroke:rgb(184,71,100); opacity:0.721569; stroke-width:0.75;" />
+<line x1="100.117" y1="523.712" x2="76.2292" y2="100.183" style="stroke:rgb(192,63,100); opacity:0.752941; stroke-width:0.75;" />
+<line x1="78.7819" y1="502.639" x2="97.2955" y2="78.8419" style="stroke:rgb(200,55,100); opacity:0.784314; stroke-width:0.75;" />
+<line x1="59.6569" y1="479.542" x2="120.387" y2="59.7101" style="stroke:rgb(208,47,100); opacity:0.815686; stroke-width:0.75;" />
+<line x1="42.9334" y1="454.65" x2="145.273" y2="42.9792" style="stroke:rgb(216,39,100); opacity:0.847059; stroke-width:0.75;" />
+<line x1="28.7784" y1="428.214" x2="171.706" y2="28.8164" style="stroke:rgb(224,31,100); opacity:0.878431; stroke-width:0.75;" />
+<line x1="17.3333" y1="400.496" x2="199.42" y2="17.3631" style="stroke:rgb(232,23,100); opacity:0.909804; stroke-width:0.75;" />
+<line x1="8.71255" y1="371.775" x2="228.139" y2="8.73383" style="stroke:rgb(240,15,100); opacity:0.941176; stroke-width:0.75;" />
+<line x1="3.00225" y1="342.336" x2="257.576" y2="3.01481" style="stroke:rgb(248,7,100); opacity:0.972549; stroke-width:0.75;" />
+<line x1="0.259455" y1="312.474" x2="287.437" y2="0.263165" style="stroke:rgb(255,0,100); opacity:1; stroke-width:0.75;" />
+<polygon points="400,300 376.613,364.269 317.391,398.476 250.034,386.622 206.049,334.252 206.008,265.86 249.932,213.437 317.274,201.503 376.537,235.641 " style="fill:rgb(123,123,123); opacity:1 stroke:none; stroke-width:0" />
+<rect x="500" y="500" width="50" height="50" fill="rgb(180,180,180)" opacity="1" stroke="none" />
+</svg>
