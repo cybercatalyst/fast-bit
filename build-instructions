@@ -1,9 +1,0 @@
-In order to build fast-bit you will need Qt 4.7.1 or higher installed. Navigate to the source-folder and run:
-
-qmake-qt4
-
-Then do:
-
-make
-
-That's it, now you should have an executable for your system.
