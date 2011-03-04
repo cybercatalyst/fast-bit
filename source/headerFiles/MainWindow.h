@@ -337,11 +337,6 @@ private slots:
       */
     void enableOrDisableImageProcessingMenus();
 
-    /**
-      * Shows up the plugin manager.
-      */
-    void showPluginManager();
-
 private:
     /**
       * Constructs the main window.

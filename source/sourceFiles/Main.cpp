@@ -31,16 +31,16 @@ int main(int argc, char *argv[])
 {
     Main::instance()->initialize(argc, argv);
 
-    QSplashScreen splashScreen(QPixmap("media/fastBitLogo.png"));
+    //QSplashScreen splashScreen(QPixmap("media/fastBitLogo.png"));
 
     MainWindow mainWindow;
     mainWindow.restoreState(Main::instance()->settings()->value("mainWindowState").toByteArray());
     mainWindow.show();
 
     // Show splash screen and wait 1000 ms. qWait does not block the thread.
-    splashScreen.show();
+    //splashScreen.show();
     QTest::qWait(1000);
-    splashScreen.close();
+    //splashScreen.close();
 
     Main::instance()->application()->exec();
 
