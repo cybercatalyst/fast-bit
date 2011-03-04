@@ -18,6 +18,7 @@
 
 #include "headerFiles/MainWindow.h"
 #include "headerFiles/ChainProcessor.h"
+#include "headerFiles/PluginManager.h"
 #include <QMessageBox>
 #include <QApplication>
 
@@ -840,6 +841,13 @@ void MainWindow::enableOrDisableImageProcessingMenus()
     }
 }
 
+void MainWindow::showPluginManager()
+{
+    PluginManager pluginManager;
+    pluginManager.exec();
+    return;
+}
+
 void MainWindow::changeLanguage()
 {
     menu["File"]->setTitle(Main::instance()->translate("MainWindow", "File"));
@@ -847,6 +855,7 @@ void MainWindow::changeLanguage()
     action["Save"]->setText(Main::instance()->translate("MainWindow", "Save"));
     action["Save As"]->setText(Main::instance()->translate("MainWindow", "Save As"));
     action["Save History"]->setText(Main::instance()->translate("MainWindow", "Save History"));
+    action["Plugin Manager"]->setText(Main::instance()->translate("MainWindow", "Plugin Manager"));
 
     menu["History"]->setTitle(Main::instance()->translate("MainWindow", "History"));
     action["Push"]->setText(Main::instance()->translate("MainWindow", "Push"));
@@ -924,6 +933,7 @@ void MainWindow::construct()
     action["Save"]=menu["File"]->addAction(Main::instance()->translate("MainWindow", "Save"));
     action["Save As"]=menu["File"]->addAction(Main::instance()->translate("MainWindow", "Save As"));
     action["Save History"]=menu["File"]->addAction(Main::instance()->translate("MainWindow", "Save History"));
+    action["Plugin Manager"]=menu["File"]->addAction(Main::instance()->translate("MainWindow", "Plugin Manager"));
 
     menu["History"]=menuBar()->addMenu(Main::instance()->translate("MainWindow", "History"));
     action["Push"]=menu["History"]->addAction(Main::instance()->translate("MainWindow", "Push"));
@@ -1042,6 +1052,7 @@ void MainWindow::construct()
     connect(action["Save"], SIGNAL(triggered()), this, SLOT(saveFileDialog()));
     connect(action["Save As"], SIGNAL(triggered()), this, SLOT(saveAsFileDialog()));
     connect(action["Save History"], SIGNAL(triggered()), this, SLOT(saveHistoryDialog()));
+    connect(action["Plugin Manager"], SIGNAL(triggered()), this, SLOT(showPluginManager()));
 
     connect(action["Push"], SIGNAL(triggered()), this, SLOT(pushHistory()));
     connect(action["Pop"], SIGNAL(triggered()), this, SLOT(popHistory()));
