@@ -24,7 +24,7 @@ SOURCES += sourceFiles/ChainProcessor.cpp \
     sourceFiles/renderers/HistogramOpenGLRenderer.cpp \
     sourceFiles/renderers/ImageOpenGLRenderer.cpp \
     sourceFiles/renderers/OpenGLRenderer.cpp \
-    sourceFiles/PluginManager.cpp
+    sourceFiles/PluginManagerDialog.cpp
 
 HEADERS += headerFiles/ChainProcessor.h \
     headerFiles/ImageProcessor.h \
@@ -43,7 +43,7 @@ HEADERS += headerFiles/ChainProcessor.h \
     headerFiles/renderers/HistogramOpenGLRenderer.h \
     headerFiles/renderers/ImageOpenGLRenderer.h \
     headerFiles/renderers/OpenGLRenderer.h \
-    headerFiles/PluginManager.h
+    headerFiles/PluginManagerDialog.h
 
 DESTDIR = ..
 TRANSLATIONS = ../translations/fast-bit_french.ts \
@@ -54,4 +54,4 @@ TRANSLATIONS = ../translations/fast-bit_french.ts \
 
 CODECFORTR = UTF-8
 
-FORMS += userInterface/PluginManager.ui
+FORMS += userInterface/PluginManagerDialog.ui

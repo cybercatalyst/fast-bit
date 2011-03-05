@@ -18,7 +18,7 @@
 
 #include "headerFiles/MainWindow.h"
 #include "headerFiles/ChainProcessor.h"
-#include "headerFiles/PluginManager.h"
+#include "headerFiles/PluginManagerDialog.h"
 #include <QMessageBox>
 #include <QApplication>
 
@@ -843,8 +843,8 @@ void MainWindow::enableOrDisableImageProcessingMenus()
 
 void MainWindow::showPluginManager()
 {
-    PluginManager pluginManager;
-    pluginManager.exec();
+    PluginManagerDialog pluginManagerDialog;
+    pluginManagerDialog.exec();
     return;
 }
 

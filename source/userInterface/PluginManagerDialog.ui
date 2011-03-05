@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>PluginManager</class>
- <widget class="QDialog" name="PluginManager">
+ <class>PluginManagerDialog</class>
+ <widget class="QDialog" name="PluginManagerDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -89,7 +89,7 @@
   <connection>
    <sender>closeButton</sender>
    <signal>clicked()</signal>
-   <receiver>PluginManager</receiver>
+   <receiver>PluginManagerDialog</receiver>
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
