@@ -26,17 +26,15 @@ void PluginManager::loadPlugin(QString fileName)
     if(fileName.length())
     {
         QLibrary library(fileName);
-        typedef list<string> (*ContentFunction)();
-        ContentFunction content = (ContentFunction) library.resolve("content");
-        if(content)
+        typedef Plugin* (*ExportPluginFunction)();
+        ExportPluginFunction exportPlugin = (ExportPluginFunction) library.resolve("exportPlugin");
+        if(exportPlugin)
         {
             qDebug("Plugin is valid, querying for content.");
-            list<string> libraryContent = content();
-            list<string>::iterator it = libraryContent.begin();
-            while(it != libraryContent.end())
+            Plugin* plugin = exportPlugin();
+            if(plugin)
             {
-                qDebug("Trying to load function %s.", (*it).c_str());
-                it++;
+                qDebug("Library identifies with \"%s\"", plugin->identifier().toStdString().c_str());
             }
         }
         else

@@ -4,7 +4,9 @@
 #
 #-------------------------------------------------
 
-QT       -= core gui
+QT       -= gui
+
+INCLUDEPATH += ../../source/
 
 TARGET = arithmetic
 TEMPLATE = lib
