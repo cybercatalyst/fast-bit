@@ -1,10 +1,20 @@
 #ifndef PLUGIN_MANAGER_H
 #define PLUGIN_MANAGER_H
 
-class PluginManager
+#include "headerFiles/Plugin.h"
+#include <QString>
+#include <QObject>
+
+class PluginManager : public QObject
 {
+    Q_OBJECT
 public:
     static PluginManager& instance();
+
+    void loadPlugin(QString fileName);
+
+signals:
+    void configurationChanged();
 
 private:
     PluginManager();

@@ -1,8 +1,8 @@
 #include "headerFiles/PluginManagerDialog.h"
 #include "ui_PluginManagerDialog.h"
+#include "headerFiles/PluginManager.h"
 #include <QFileDialog>
 #include <QApplication>
-#include <QLibrary>
 
 #include <list>
 #include <string>
@@ -14,6 +14,9 @@ PluginManagerDialog::PluginManagerDialog(QWidget *parent) :
 {
     ui->setupUi(this);
     connect(ui->loadButton, SIGNAL(clicked()), this, SLOT(loadPlugin()));
+
+    connect(&PluginManager::instance(), SIGNAL(configurationChanged()), this, SLOT(updateConfiguration()));
+    updateConfiguration();
 }
 
 PluginManagerDialog::~PluginManagerDialog()
@@ -27,28 +30,12 @@ void PluginManagerDialog::loadPlugin()
     QFileDialog::getOpenFileName(this,
                                  "Load Plugin",
                                  QApplication::applicationDirPath() + "/plugins");
-    if(selectedFile.length())
-    {
-        QLibrary library(selectedFile);
-        typedef list<string> (*ContentFunction)();
-        ContentFunction content = (ContentFunction) library.resolve("content");
-        if(content)
-        {
-            qDebug("Plugin is valid, querying for content.");
-            list<string> libraryContent = content();
-            list<string>::iterator it = libraryContent.begin();
-            while(it != libraryContent.end())
-            {
-                qDebug("Trying to load function %s.", (*it).c_str());
-                it++;
-            }
-        }
-        else
-        {
-            qDebug("Plugin is not valid.");
-            // This is no a valid plugin.
-        }
-    }
+    PluginManager::instance().loadPlugin(selectedFile);
+}
+
+void PluginManagerDialog::updateConfiguration()
+{
+
 }
 
 void PluginManagerDialog::changeEvent(QEvent *e)

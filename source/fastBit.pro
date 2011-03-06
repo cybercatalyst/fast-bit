@@ -25,7 +25,8 @@ SOURCES += sourceFiles/ChainProcessor.cpp \
     sourceFiles/renderers/ImageOpenGLRenderer.cpp \
     sourceFiles/renderers/OpenGLRenderer.cpp \
     sourceFiles/PluginManagerDialog.cpp \
-    sourceFiles/PluginManager.cpp
+    sourceFiles/PluginManager.cpp \
+    sourceFiles/Plugin.cpp
 
 HEADERS += headerFiles/ChainProcessor.h \
     headerFiles/ImageProcessor.h \
@@ -45,7 +46,8 @@ HEADERS += headerFiles/ChainProcessor.h \
     headerFiles/renderers/ImageOpenGLRenderer.h \
     headerFiles/renderers/OpenGLRenderer.h \
     headerFiles/PluginManagerDialog.h \
-    headerFiles/PluginManager.h
+    headerFiles/PluginManager.h \
+    headerFiles/Plugin.h
 
 DESTDIR = ..
 TRANSLATIONS = ../translations/fast-bit_french.ts \

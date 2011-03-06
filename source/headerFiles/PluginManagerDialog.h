@@ -15,6 +15,7 @@ public:
 
 public slots:
     void loadPlugin();
+    void updateConfiguration();
 
 protected:
     void changeEvent(QEvent *e);
