@@ -35,6 +35,8 @@ PluginManagerDialog::PluginManagerDialog(QWidget *parent) :
 
     connect(&PluginManager::instance(), SIGNAL(configurationChanged()), this, SLOT(updateConfiguration()));
     updateConfiguration();
+
+    ui->treeView->setHeaderHidden(true);
 }
 
 PluginManagerDialog::~PluginManagerDialog()
@@ -53,7 +55,23 @@ void PluginManagerDialog::loadPlugin()
 
 void PluginManagerDialog::updateConfiguration()
 {
+    model.clear();
+    QList<QString> plugins = PluginManager::instance().availablePlugins();
+    foreach(QString plugin, plugins)
+    {
+        QStandardItem* pluginItem = new QStandardItem(plugin);
+        QFont font = pluginItem->font();
+        font.setBold(true);
+        pluginItem->setFont(font);
 
+        model.appendRow(pluginItem);
+
+        foreach(QString function, PluginManager::instance().availableFunctions(plugin))
+        {
+            pluginItem->appendRow(new QStandardItem(function));
+        }
+    }
+    ui->treeView->setModel(&model);
 }
 
 void PluginManagerDialog::changeEvent(QEvent *e)

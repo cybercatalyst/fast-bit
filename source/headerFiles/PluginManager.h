@@ -19,7 +19,7 @@
 #ifndef PLUGIN_MANAGER_H
 #define PLUGIN_MANAGER_H
 
-#include "headerFiles/Plugin.h"
+#include "headerFiles/PluginProxy.h"
 #include <QString>
 #include <QObject>
 
@@ -30,6 +30,8 @@ public:
     static PluginManager& instance();
 
     void loadPlugin(QString fileName);
+    QList<QString> availablePlugins();
+    QList<QString> availableFunctions(QString plugin);
 
 signals:
     void configurationChanged();
@@ -38,6 +40,7 @@ private:
     PluginManager();
     ~PluginManager();
 
+    QList<PluginProxy> m_plugins;
     static PluginManager singleton;
 };
 

@@ -20,6 +20,7 @@
 #define PLUGIN_MANAGER_DIALOG_H
 
 #include <QDialog>
+#include <QStandardItemModel>
 
 namespace Ui {
     class PluginManagerDialog;
@@ -39,6 +40,7 @@ protected:
     void changeEvent(QEvent *e);
 
 private:
+    QStandardItemModel model;
     Ui::PluginManagerDialog *ui;
 };
 

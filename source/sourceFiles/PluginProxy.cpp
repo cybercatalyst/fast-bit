@@ -17,3 +17,24 @@
  */
 
 #include "headerFiles/PluginProxy.h"
+
+PluginProxy::PluginProxy(Plugin* plugin)
+    : m_plugin(plugin),
+      m_valid(false)
+{
+    if(plugin)
+    {
+        qDebug("Library identifies with \"%s\"", plugin->identifier().toStdString().c_str());
+        QList<QString> content = plugin->content();
+        foreach(QString function, content)
+        {
+            qDebug("Found function \"%s\"", function.toStdString().c_str());
+        }
+        m_valid = true;
+    }
+}
+
+QList<QString> PluginProxy::functions()
+{
+    return m_plugin->content();
+}

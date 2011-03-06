@@ -24,12 +24,16 @@
 class PluginProxy
 {
 public:
-    PluginProxy(Plugin* plugin) : m_plugin(plugin) {}
+    PluginProxy(Plugin* plugin);
     ~PluginProxy() {}
 
+    QString identifier() { return m_plugin->identifier(); }
+    QList<QString> functions();
+    bool isValid() { return m_valid; }
 private:
     PluginProxy() {}
     Plugin* m_plugin;
+    bool m_valid;
 };
 
 #endif // PLUGIN_PROXY_H

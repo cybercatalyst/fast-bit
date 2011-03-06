@@ -48,17 +48,11 @@ void PluginManager::loadPlugin(QString fileName)
         ExportPluginFunction exportPlugin = (ExportPluginFunction) library.resolve("exportPlugin");
         if(exportPlugin)
         {
-            qDebug("Plugin is valid, querying for content.");
-            Plugin* plugin = exportPlugin();
-            if(plugin)
-            {
-                qDebug("Library identifies with \"%s\"", plugin->identifier().toStdString().c_str());
-                QList<QString> content = plugin->content();
-                foreach(QString function, content)
-                {
-                    qDebug("Found function \"%s\"", function.toStdString().c_str());
-                }
-            }
+            qDebug("Plugin seems to be valid, querying for content.");
+            PluginProxy pluginProxy(exportPlugin());
+
+            if(pluginProxy.isValid())
+                m_plugins.append(pluginProxy);
         }
         else
         {
@@ -68,4 +62,20 @@ void PluginManager::loadPlugin(QString fileName)
     }
 
     emit configurationChanged();
+}
+
+QList<QString> PluginManager::availablePlugins()
+{
+    QList<QString> pluginList;
+    foreach(PluginProxy proxy, m_plugins)
+        pluginList.append(proxy.identifier());
+    return pluginList;
+}
+
+QList<QString> PluginManager::availableFunctions(QString plugin)
+{
+    foreach(PluginProxy proxy, m_plugins)
+        if(proxy.identifier() == plugin)
+            return proxy.functions();
+    return QList<QString>();
 }
