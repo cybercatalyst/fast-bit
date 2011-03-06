@@ -28,7 +28,7 @@ ScriptingInterface::ScriptingInterface(QWidget *parent)
     setObjectName("scriptingInterface");
     construct();
 
-    connect(Main::instance(), SIGNAL(languageChanged()), this, SLOT(changeLanguage()));
+    connect(&Main::instance(), SIGNAL(languageChanged()), this, SLOT(changeLanguage()));
     connect(m.scriptEngine, SIGNAL(output(QString)), this, SLOT(input(QString)));
     connect(m.runScript, SIGNAL(clicked()), this, SLOT(evaluateScript()));
     connect(m.action["Open"], SIGNAL(triggered()), this, SLOT(openFile()));
@@ -41,15 +41,15 @@ ScriptingInterface::~ScriptingInterface()
 
 void ScriptingInterface::changeLanguage()
 {
-    m.menu["File"]->setTitle(Main::instance()->translate("ScriptingInterface", "File"));
-    m.runScript->setText(Main::instance()->translate("ScriptingInterface", "Run"));
-    m.action["Open"]->setText(Main::instance()->translate("ScriptingInterface", "Open"));
-    m.action["Save"]->setText(Main::instance()->translate("ScriptingInterface", "Save"));
+    m.menu["File"]->setTitle(Main::instance().translate("ScriptingInterface", "File"));
+    m.runScript->setText(Main::instance().translate("ScriptingInterface", "Run"));
+    m.action["Open"]->setText(Main::instance().translate("ScriptingInterface", "Open"));
+    m.action["Save"]->setText(Main::instance().translate("ScriptingInterface", "Save"));
 }
 
 void ScriptingInterface::evaluateScript()
 {
-    emit output(Main::instance()->translate("ScriptingInterface", "<b>Evaluating script..</b>"));
+    emit output(Main::instance().translate("ScriptingInterface", "<b>Evaluating script..</b>"));
     QMetaObject::invokeMethod(m.scriptEngine, "evaluateScript", Qt::QueuedConnection,
                               Q_ARG(QString, m.scriptEdit->document()->toPlainText()));
 }
@@ -63,7 +63,7 @@ void ScriptingInterface::openFile()
 {
     QString fileName =
     QFileDialog::getOpenFileName(this,
-        Main::instance()->translate("ScriptingInterface", "Open Script File"),
+        Main::instance().translate("ScriptingInterface", "Open Script File"),
         "examples/script",
         QString("*") + FAST_BIT_SCRIPT);
 
@@ -80,7 +80,7 @@ void ScriptingInterface::saveFile()
 {
     QString fileName =
     QFileDialog::getSaveFileName(this,
-        Main::instance()->translate("ScriptingInterface", "Save Script File"),
+        Main::instance().translate("ScriptingInterface", "Save Script File"),
         "examples/script",
         QString("*") + FAST_BIT_SCRIPT);
 
@@ -95,12 +95,12 @@ void ScriptingInterface::saveFile()
 
 void ScriptingInterface::construct()
 {
-    m.menu["File"] = menuBar()->addMenu(Main::instance()->translate("ScriptingInterface", "File"));
-    m.action["Open"] = m.menu["File"]->addAction(Main::instance()->translate("ScriptingInterface", "Open"));
-    m.action["Save"] = m.menu["File"]->addAction(Main::instance()->translate("ScriptingInterface", "Save"));
+    m.menu["File"] = menuBar()->addMenu(Main::instance().translate("ScriptingInterface", "File"));
+    m.action["Open"] = m.menu["File"]->addAction(Main::instance().translate("ScriptingInterface", "Open"));
+    m.action["Save"] = m.menu["File"]->addAction(Main::instance().translate("ScriptingInterface", "Save"));
 
-    m.controlBar = new QToolBar(Main::instance()->translate("ScriptingInterface", "Control"), this);
-    m.runScript = new QPushButton(Main::instance()->translate("ScriptingInterface", "Run"), m.controlBar);
+    m.controlBar = new QToolBar(Main::instance().translate("ScriptingInterface", "Control"), this);
+    m.runScript = new QPushButton(Main::instance().translate("ScriptingInterface", "Run"), m.controlBar);
     m.controlBar->addWidget(m.runScript);
 
     m.controlBar->setObjectName("controlBar");

@@ -32,7 +32,7 @@ ChainProcessor::ChainProcessor(QObject *_sender)
 
 ChainProcessor::~ChainProcessor()
 {
-    emit status(Main::instance()->translate("ChainProcessor", "Deleting chain processing adapter."));
+    emit status(Main::instance().translate("ChainProcessor", "Deleting chain processing adapter."));
     processingThread->quit();
     //delete processingThread;
 }
@@ -52,7 +52,7 @@ void ChainProcessor::handleImage(QImage image)
         Task task = tasks[0];
         tasks.pop_front();
 
-        emit status(QString(Main::instance()->translate("ChainProcessor", "Starting task: %1")).arg(task.methodName));
+        emit status(QString(Main::instance().translate("ChainProcessor", "Starting task: %1")).arg(task.methodName));
 
         task.arguments.push_front(Q_ARG(QImage, image));
         task.arguments.push_front(Q_ARG(QObject*, this));

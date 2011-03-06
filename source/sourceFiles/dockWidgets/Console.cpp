@@ -22,11 +22,11 @@
 Console::Console(QWidget *parent)
     : QDockWidget(parent)
 {
-    setWindowTitle(Main::instance()->translate("Console", "Console"));
+    setWindowTitle(Main::instance().translate("Console", "Console"));
     setObjectName("console");
     construct();
 
-    connect(Main::instance(), SIGNAL(languageChanged()), this, SLOT(changeLanguage()));
+    connect(&Main::instance(), SIGNAL(languageChanged()), this, SLOT(changeLanguage()));
     changeLanguage();
 }
 
@@ -41,7 +41,7 @@ void Console::print(QString message)
 
 void Console::changeLanguage()
 {
-    setWindowTitle(Main::instance()->translate("Console", "Console"));
+    setWindowTitle(Main::instance().translate("Console", "Console"));
 }
 
 void Console::construct()
@@ -54,5 +54,5 @@ void Console::construct()
           " and you are welcome to redistribute it under certain conditions.");
     print("fast-bit is still in alpha stage. If you encounter any problems,"
           " please feel free to contact us at: jacob.dawid@googlemail.com");
-    print(Main::instance()->translate("Console", "Ready."));
+    print(Main::instance().translate("Console", "Ready."));
 }

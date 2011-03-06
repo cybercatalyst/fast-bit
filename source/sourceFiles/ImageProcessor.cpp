@@ -327,7 +327,7 @@ void ImageProcessor::autoBrightness(QObject *sender, QImage image)
 {
     const QString methodName = "ImageProcessor::autoBrightness";
 
-    emit status(methodName + Main::instance()->translate("ImageProcessor", ": Performing automatic brightness adjustment."));
+    emit status(methodName + Main::instance().translate("ImageProcessor", ": Performing automatic brightness adjustment."));
 
     int u;
     int brightnessCorrection[3] = {0, 0, 0};
@@ -375,7 +375,7 @@ void ImageProcessor::autoBrightness(QObject *sender, QImage image)
         brightnessCorrection[u] = 128 - (int)idealBrightness;
     }
 
-    emit status(QString(Main::instance()->translate("ImageProcessor", "Brightness error is (R)%1/(G)%2,/(B)%3"))
+    emit status(QString(Main::instance().translate("ImageProcessor", "Brightness error is (R)%1/(G)%2,/(B)%3"))
                 .arg(brightnessCorrection[0])
                 .arg(brightnessCorrection[1])
                 .arg(brightnessCorrection[2]));
@@ -384,7 +384,7 @@ void ImageProcessor::autoBrightness(QObject *sender, QImage image)
                  + brightnessCorrection[1]
                  + brightnessCorrection[2]) / 3;
 
-    emit status(QString(Main::instance()->translate("ImageProcessor", "Modifying brightness by %1.")).arg(result));
+    emit status(QString(Main::instance().translate("ImageProcessor", "Modifying brightness by %1.")).arg(result));
 
     for(y=0;y<image.height();y++)
         for(x=0;x<image.width();x++)
@@ -405,14 +405,14 @@ void ImageProcessor::autoBrightness(QObject *sender, QImage image)
                               Qt::QueuedConnection,
                               Q_ARG(QImage, image));
 
-    emit status(methodName + Main::instance()->translate("ImageProcessor", ": Done."));
+    emit status(methodName + Main::instance().translate("ImageProcessor", ": Done."));
 }
 
 void ImageProcessor::redFilter(QObject *sender, QImage image)
 {
     const QString methodName = "ImageProcessor::redFilter";
 
-    emit status(methodName + Main::instance()->translate("ImageProcessor", ": Performing red filter."));
+    emit status(methodName + Main::instance().translate("ImageProcessor", ": Performing red filter."));
 
     int x, y;
     for(y=0;y<image.height();y++)
@@ -423,14 +423,14 @@ void ImageProcessor::redFilter(QObject *sender, QImage image)
                               Qt::QueuedConnection,
                               Q_ARG(QImage, image));
 
-    emit status(methodName + Main::instance()->translate("ImageProcessor", ": Done."));
+    emit status(methodName + Main::instance().translate("ImageProcessor", ": Done."));
 }
 
 void ImageProcessor::greenFilter(QObject *sender, QImage image)
 {
     const QString methodName = "ImageProcessor::greenFilter";
 
-    emit status(methodName + Main::instance()->translate("ImageProcessor", ": Performing green filter."));
+    emit status(methodName + Main::instance().translate("ImageProcessor", ": Performing green filter."));
 
     int x, y;
     for(y=0;y<image.height();y++)
@@ -441,7 +441,7 @@ void ImageProcessor::greenFilter(QObject *sender, QImage image)
                               Qt::QueuedConnection,
                               Q_ARG(QImage, image));
 
-    emit status(methodName + Main::instance()->translate("ImageProcessor", ": Done."));
+    emit status(methodName + Main::instance().translate("ImageProcessor", ": Done."));
 }
 
 void ImageProcessor::grayValueSplay(QObject *sender, QImage image)
@@ -453,7 +453,7 @@ void ImageProcessor::grayValueSplay(QObject *sender, QImage image)
       */
     const QString methodName = "ImageProcessor::grayValueSplay";
 
-    emit status(methodName + Main::instance()->translate("ImageProcessor", ": Performing gray value splay."));
+    emit status(methodName + Main::instance().translate("ImageProcessor", ": Performing gray value splay."));
 
     int smallestGrayValue[3] = {255, 255, 255};
     int largestGrayValue[3] = {0, 0, 0};
@@ -498,14 +498,14 @@ void ImageProcessor::grayValueSplay(QObject *sender, QImage image)
                               Qt::QueuedConnection,
                               Q_ARG(QImage, image));
 
-    emit status(methodName + Main::instance()->translate("ImageProcessor", ": Done."));
+    emit status(methodName + Main::instance().translate("ImageProcessor", ": Done."));
 }
 
 void ImageProcessor::blueFilter(QObject *sender, QImage image)
 {
     const QString methodName = "ImageProcessor::blueFilter";
 
-    emit status(methodName + Main::instance()->translate("ImageProcessor", ": Performing blue filter."));
+    emit status(methodName + Main::instance().translate("ImageProcessor", ": Performing blue filter."));
 
     int x, y;
     for(y=0;y<image.height();y++)
@@ -516,7 +516,7 @@ void ImageProcessor::blueFilter(QObject *sender, QImage image)
                               Qt::QueuedConnection,
                               Q_ARG(QImage, image));
 
-    emit status(methodName + Main::instance()->translate("ImageProcessor", ": Done."));
+    emit status(methodName + Main::instance().translate("ImageProcessor", ": Done."));
 }
 
 void ImageProcessor::invert(QObject *sender, QImage image)
@@ -529,14 +529,14 @@ void ImageProcessor::invert(QObject *sender, QImage image)
                               Qt::QueuedConnection,
                               Q_ARG(QImage, image));
 
-    emit status(methodName + Main::instance()->translate("ImageProcessor", ": Done."));
+    emit status(methodName + Main::instance().translate("ImageProcessor", ": Done."));
 }
 
 void ImageProcessor::threshold(QObject *sender, QImage image, int thr)
 {
     const QString methodName = "ImageProcessor::threshold";
 
-    emit status(methodName + Main::instance()->translate("ImageProcessor", ": Performing threshold operation."));
+    emit status(methodName + Main::instance().translate("ImageProcessor", ": Performing threshold operation."));
     int x, y, u;
     for(y=0;y<image.height();y++)
         for(x=0;x<image.width();x++)
@@ -557,14 +557,14 @@ void ImageProcessor::threshold(QObject *sender, QImage image, int thr)
                               Qt::QueuedConnection,
                               Q_ARG(QImage, image));
 
-    emit status(methodName + Main::instance()->translate("ImageProcessor", ": Done."));
+    emit status(methodName + Main::instance().translate("ImageProcessor", ": Done."));
 }
 
 void ImageProcessor::brightness(QObject *sender, QImage image, int bgt)
 {
     const QString methodName = "ImageProcessor::brightness";
 
-    emit status(methodName + Main::instance()->translate("ImageProcessor", ": Applying brightness."));
+    emit status(methodName + Main::instance().translate("ImageProcessor", ": Applying brightness."));
     int x, y;
     for(y=0;y<image.height();y++)
         for(x=0;x<image.width();x++)
@@ -584,7 +584,7 @@ void ImageProcessor::brightness(QObject *sender, QImage image, int bgt)
                               Qt::QueuedConnection,
                               Q_ARG(QImage, image));
 
-    emit status(methodName + Main::instance()->translate("ImageProcessor", ": Done."));
+    emit status(methodName + Main::instance().translate("ImageProcessor", ": Done."));
 }
 
 void ImageProcessor::symmetricDifferentiationFilter(QObject *sender, QImage image)
@@ -595,7 +595,7 @@ void ImageProcessor::symmetricDifferentiationFilter(QObject *sender, QImage imag
     int x, y, u;
     int op[3]={-1, 0, 1};
 
-    emit status(methodName + Main::instance()->translate("ImageProcessor", ": Generating horizontal differentiation image."));
+    emit status(methodName + Main::instance().translate("ImageProcessor", ": Generating horizontal differentiation image."));
     for(y=0;y<image.height();y++)
         for(x=1;x<image.width()-1;x++)
         {
@@ -614,7 +614,7 @@ void ImageProcessor::symmetricDifferentiationFilter(QObject *sender, QImage imag
             images[0].setPixel(x, y, qRgb(rgb[0], rgb[1], rgb[2]));
         }
 
-    emit status(methodName + Main::instance()->translate("ImageProcessor", ": Generating vertical differentiation image."));
+    emit status(methodName + Main::instance().translate("ImageProcessor", ": Generating vertical differentiation image."));
     for(y=1;y<image.height()-1;y++)
         for(x=0;x<image.width();x++)
         {
@@ -633,7 +633,7 @@ void ImageProcessor::symmetricDifferentiationFilter(QObject *sender, QImage imag
             images[1].setPixel(x, y, qRgb(rgb[0], rgb[1], rgb[2]));
         }
 
-    emit status(methodName + Main::instance()->translate("ImageProcessor", ": Combining differentiation images."));
+    emit status(methodName + Main::instance().translate("ImageProcessor", ": Combining differentiation images."));
     for(y=0;y<image.height();y++)
         for(x=0;x<image.width();x++)
         {
@@ -657,7 +657,7 @@ void ImageProcessor::symmetricDifferentiationFilter(QObject *sender, QImage imag
                               Qt::QueuedConnection,
                               Q_ARG(QImage, result));
 
-    emit status(methodName + Main::instance()->translate("ImageProcessor", ": Done."));
+    emit status(methodName + Main::instance().translate("ImageProcessor", ": Done."));
 }
 
 void ImageProcessor::prewittFilter(QObject *sender, QImage image)
@@ -669,13 +669,13 @@ void ImageProcessor::prewittFilter(QObject *sender, QImage image)
     QImage images[2] = { image, image };
     QImage result(image);
 
-    emit status(methodName + Main::instance()->translate("ImageProcessor", ": Generating horizontal differentiation image."));
+    emit status(methodName + Main::instance().translate("ImageProcessor", ": Generating horizontal differentiation image."));
     runOperator(images[0], opHorizontal, 6, 128);
 
-    emit status(methodName + Main::instance()->translate("ImageProcessor", ": Generating vertical differentiation image."));
+    emit status(methodName + Main::instance().translate("ImageProcessor", ": Generating vertical differentiation image."));
     runOperator(images[1], opVertical, 6, 128);
 
-    emit status(methodName + Main::instance()->translate("ImageProcessor", ": Combining differentiation images."));
+    emit status(methodName + Main::instance().translate("ImageProcessor", ": Combining differentiation images."));
     for(y=0;y<image.height();y++)
         for(x=0;x<image.width();x++)
         {
@@ -699,7 +699,7 @@ void ImageProcessor::prewittFilter(QObject *sender, QImage image)
                               Qt::QueuedConnection,
                               Q_ARG(QImage, result));
 
-    emit status(methodName + Main::instance()->translate("ImageProcessor", ": Done."));
+    emit status(methodName + Main::instance().translate("ImageProcessor", ": Done."));
 }
 
 void ImageProcessor::sobelFilter(QObject *sender, QImage image)
@@ -711,13 +711,13 @@ void ImageProcessor::sobelFilter(QObject *sender, QImage image)
     QImage images[2] = { image, image };
     QImage result(image);
 
-    emit status(methodName + Main::instance()->translate("ImageProcessor", ": Generating horizontal differentiation image."));
+    emit status(methodName + Main::instance().translate("ImageProcessor", ": Generating horizontal differentiation image."));
     runOperator(images[0], opHorizontal, 8, 128);
 
-    emit status(methodName + Main::instance()->translate("ImageProcessor", ": Generating vertical differentiation image."));
+    emit status(methodName + Main::instance().translate("ImageProcessor", ": Generating vertical differentiation image."));
     runOperator(images[1], opVertical, 8, 128);
 
-    emit status(methodName + Main::instance()->translate("ImageProcessor", ": Combining differentiation images."));
+    emit status(methodName + Main::instance().translate("ImageProcessor", ": Combining differentiation images."));
     for(y=0;y<image.height();y++)
         for(x=0;x<image.width();x++)
         {
@@ -741,7 +741,7 @@ void ImageProcessor::sobelFilter(QObject *sender, QImage image)
                               Qt::QueuedConnection,
                               Q_ARG(QImage, result));
 
-    emit status(methodName + Main::instance()->translate("ImageProcessor", ": Done."));
+    emit status(methodName + Main::instance().translate("ImageProcessor", ": Done."));
 }
 
 void ImageProcessor::laPlaceFilter(QObject *sender, QImage image)
@@ -755,7 +755,7 @@ void ImageProcessor::laPlaceFilter(QObject *sender, QImage image)
                               Qt::QueuedConnection,
                               Q_ARG(QImage, image));
 
-    emit status(methodName + Main::instance()->translate("ImageProcessor", ": Done."));
+    emit status(methodName + Main::instance().translate("ImageProcessor", ": Done."));
 }
 
 void ImageProcessor::kirschCompassFilter(QObject* sender, QImage image)
@@ -801,11 +801,11 @@ void ImageProcessor::kirschCompassFilter(QObject* sender, QImage image)
     for(u=0;u<8;u++)
     {
         images[u]=image;
-        emit status(methodName + QString(Main::instance()->translate("ImageProcessor", ": Generating differentiation image for direction %1.")).arg(u+1));
+        emit status(methodName + QString(Main::instance().translate("ImageProcessor", ": Generating differentiation image for direction %1.")).arg(u+1));
         runOperator(images[u], op[u], 30, 128);
     }
 
-    emit status(methodName + Main::instance()->translate("ImageProcessor", ": Combining differentiation images."));
+    emit status(methodName + Main::instance().translate("ImageProcessor", ": Combining differentiation images."));
     for(y=0;y<image.height();y++)
         for(x=0;x<image.width();x++)
         {
@@ -829,7 +829,7 @@ void ImageProcessor::kirschCompassFilter(QObject* sender, QImage image)
                               Qt::QueuedConnection,
                               Q_ARG(QImage, result));
 
-    emit status(methodName + Main::instance()->translate("ImageProcessor", ": Done."));
+    emit status(methodName + Main::instance().translate("ImageProcessor", ": Done."));
 }
 
 void ImageProcessor::makeAbsolute(QObject *sender, QImage image)
@@ -851,7 +851,7 @@ void ImageProcessor::makeAbsolute(QObject *sender, QImage image)
                               Qt::QueuedConnection,
                               Q_ARG(QImage, image));
 
-    emit status(methodName + Main::instance()->translate("ImageProcessor", ": Done."));
+    emit status(methodName + Main::instance().translate("ImageProcessor", ": Done."));
 }
 
 void ImageProcessor::erode(QObject *sender, QImage image)
@@ -863,7 +863,7 @@ void ImageProcessor::erode(QObject *sender, QImage image)
     QImage erosionImage(image.width(), image.height(), image.format());
     erosionImage.fill(qRgb(0,0,0));
 
-    emit status(methodName + Main::instance()->translate("ImageProcessor", ": Performing erosion."));
+    emit status(methodName + Main::instance().translate("ImageProcessor", ": Performing erosion."));
     for(y=1;y<image.height()-1;y++)
         for(x=1;x<image.width()-1;x++)
         {
@@ -918,7 +918,7 @@ void ImageProcessor::erode(QObject *sender, QImage image)
                               Qt::QueuedConnection,
                               Q_ARG(QImage, erosionImage));
 
-    emit status(methodName + Main::instance()->translate("ImageProcessor", ": Done."));
+    emit status(methodName + Main::instance().translate("ImageProcessor", ": Done."));
 }
 
 void ImageProcessor::convertToGray(QObject *sender, QImage image)
@@ -939,7 +939,7 @@ void ImageProcessor::convertToGray(QObject *sender, QImage image)
                               Qt::QueuedConnection,
                               Q_ARG(QImage, image));
 
-    emit status(methodName + Main::instance()->translate("ImageProcessor", ": Done."));
+    emit status(methodName + Main::instance().translate("ImageProcessor", ": Done."));
 }
 
 void ImageProcessor::add(QObject *sender, QImage firstImage, QImage secondImage)
@@ -967,7 +967,7 @@ void ImageProcessor::add(QObject *sender, QImage firstImage, QImage secondImage)
                               Qt::QueuedConnection,
                               Q_ARG(QImage, firstImage));
 
-    emit status(methodName + Main::instance()->translate("ImageProcessor", ": Done."));
+    emit status(methodName + Main::instance().translate("ImageProcessor", ": Done."));
 }
 
 void ImageProcessor::subtract(QObject *sender, QImage firstImage, QImage secondImage)
@@ -995,7 +995,7 @@ void ImageProcessor::subtract(QObject *sender, QImage firstImage, QImage secondI
                               Qt::QueuedConnection,
                               Q_ARG(QImage, firstImage));
 
-    emit status(methodName + Main::instance()->translate("ImageProcessor", ": Done."));
+    emit status(methodName + Main::instance().translate("ImageProcessor", ": Done."));
 }
 
 void ImageProcessor::multiplicate(QObject *sender, QImage firstImage, QImage secondImage)
@@ -1023,7 +1023,7 @@ void ImageProcessor::multiplicate(QObject *sender, QImage firstImage, QImage sec
                               Qt::QueuedConnection,
                               Q_ARG(QImage, firstImage));
 
-    emit status(methodName + Main::instance()->translate("ImageProcessor", ": Done."));
+    emit status(methodName + Main::instance().translate("ImageProcessor", ": Done."));
 }
 
 void ImageProcessor::divide(QObject *sender, QImage firstImage, QImage secondImage)
@@ -1061,7 +1061,7 @@ void ImageProcessor::divide(QObject *sender, QImage firstImage, QImage secondIma
                               Qt::QueuedConnection,
                               Q_ARG(QImage, firstImage));
 
-    emit status(methodName + Main::instance()->translate("ImageProcessor", ": Done."));
+    emit status(methodName + Main::instance().translate("ImageProcessor", ": Done."));
 }
 
 void ImageProcessor::rotate(QObject *sender, QImage image, double degrees)
@@ -1075,7 +1075,7 @@ void ImageProcessor::rotate(QObject *sender, QImage image, double degrees)
                               Qt::QueuedConnection,
                               Q_ARG(QImage, rotatedImage));
 
-    emit status(methodName + Main::instance()->translate("ImageProcessor", ": Done."));
+    emit status(methodName + Main::instance().translate("ImageProcessor", ": Done."));
 }
 
 
@@ -1130,7 +1130,7 @@ void ImageProcessor::fillUpHorizontalGaps(QObject *sender, QImage image, int loo
                               Qt::QueuedConnection,
                               Q_ARG(QImage, image));
 
-    emit status(methodName + Main::instance()->translate("ImageProcessor", ": Done."));
+    emit status(methodName + Main::instance().translate("ImageProcessor", ": Done."));
 }
 
 void ImageProcessor::fillUpVerticalGaps(QObject *sender, QImage image, int loops)
@@ -1184,7 +1184,7 @@ void ImageProcessor::fillUpVerticalGaps(QObject *sender, QImage image, int loops
                               Qt::QueuedConnection,
                               Q_ARG(QImage, image));
 
-    emit status(methodName + Main::instance()->translate("ImageProcessor", ": Done."));
+    emit status(methodName + Main::instance().translate("ImageProcessor", ": Done."));
 }
 
 
@@ -1208,7 +1208,7 @@ void ImageProcessor::reduceColors(QObject *sender, QImage image, int stepping)
                               Qt::QueuedConnection,
                               Q_ARG(QImage, image));
 
-    emit status(methodName + Main::instance()->translate("ImageProcessor", ": Done."));
+    emit status(methodName + Main::instance().translate("ImageProcessor", ": Done."));
 }
 
 void ImageProcessor::removeColorByValue(QObject *sender, QImage image, int colorValue)
@@ -1231,7 +1231,7 @@ void ImageProcessor::removeColorByValue(QObject *sender, QImage image, int color
                               Qt::QueuedConnection,
                               Q_ARG(QImage, image));
 
-    emit status(methodName + Main::instance()->translate("ImageProcessor", ": Done."));
+    emit status(methodName + Main::instance().translate("ImageProcessor", ": Done."));
 }
 
 void ImageProcessor::detectZeroCrossings(QObject *sender, QImage image)
@@ -1301,7 +1301,7 @@ void ImageProcessor::detectZeroCrossings(QObject *sender, QImage image)
                               Qt::QueuedConnection,
                               Q_ARG(QImage, result));
 
-    emit status(methodName + Main::instance()->translate("ImageProcessor", ": Done."));
+    emit status(methodName + Main::instance().translate("ImageProcessor", ": Done."));
 }
 
 void ImageProcessor::runOperator(QImage& image, int op[3][3], int weight, int offset)
@@ -1329,7 +1329,7 @@ void ImageProcessor::runOperator(QImage& image, int op[3][3], int weight, int of
             result.setPixel(x, y, qRgb(rgb[0], rgb[1], rgb[2]));
         }
     image=result;
-    emit status(methodName + Main::instance()->translate("ImageProcessor", ": Done."));
+    emit status(methodName + Main::instance().translate("ImageProcessor", ": Done."));
 }
 
 void ImageProcessor::clipColor(int &color)

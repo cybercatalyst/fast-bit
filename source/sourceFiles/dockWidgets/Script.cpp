@@ -22,12 +22,12 @@
 Script::Script(QWidget *parent)
     : QDockWidget(parent)
 {
-    setWindowTitle(Main::instance()->translate("Script", "Script"));
+    setWindowTitle(Main::instance().translate("Script", "Script"));
     setObjectName("script");
     construct();
 
-    connect(Main::instance(), SIGNAL(languageChanged()), this, SLOT(changeLanguage()));
-    m.scriptingInterface->restoreState(Main::instance()->settings()->value("scriptingWindowState").toByteArray());
+    connect(&Main::instance(), SIGNAL(languageChanged()), this, SLOT(changeLanguage()));
+    m.scriptingInterface->restoreState(Main::instance().settings()->value("scriptingWindowState").toByteArray());
 }
 
 Script::~Script()
@@ -36,7 +36,7 @@ Script::~Script()
 
 void Script::changeLanguage()
 {
-    setWindowTitle(Main::instance()->translate("Script", "Script"));
+    setWindowTitle(Main::instance().translate("Script", "Script"));
 }
 
 ScriptingInterface *Script::scriptingInterface()
@@ -52,5 +52,5 @@ void Script::construct()
 
 void Script::saveWindowState()
 {
-    Main::instance()->settings()->setValue("scriptingWindowState", m.scriptingInterface->saveState());
+    Main::instance().settings()->setValue("scriptingWindowState", m.scriptingInterface->saveState());
 }

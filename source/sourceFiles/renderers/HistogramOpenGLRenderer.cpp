@@ -160,6 +160,6 @@ void HistogramOpenGLRenderer::paintGL()
     if(updating)
     {
         glColor3d(1.0, 1.0, 1.0);
-        renderText(-0.9, -0.9, 0.0, Main::instance()->translate("HistogramOpenGLRenderer", "Updating, please wait.."));
+        renderText(-0.9, -0.9, 0.0, Main::instance().translate("HistogramOpenGLRenderer", "Updating, please wait.."));
     }
 }

@@ -42,6 +42,7 @@
 #include "headerFiles/renderers/ImageOpenGLRenderer.h"
 #include "headerFiles/ImageProcessor.h"
 #include "headerFiles/renderers/OpenGLRenderer.h"
+#include "headerFiles/PluginManager.h"
 
 /**
   * \class MainWindow

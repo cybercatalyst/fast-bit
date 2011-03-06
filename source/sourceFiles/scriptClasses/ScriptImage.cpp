@@ -28,7 +28,7 @@ ScriptImage::ScriptImage(QObject *parent)
 {
     connect(this,
             SIGNAL(show(QImage, QString)),
-            Main::instance()->mainWindow(),
+            Main::instance().mainWindow(),
             SLOT(displayImage(QImage, QString)),
             Qt::BlockingQueuedConnection);
 

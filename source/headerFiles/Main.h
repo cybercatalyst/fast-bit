@@ -30,7 +30,7 @@ class Main : public QObject
 {
     Q_OBJECT
     public:
-        static Main* instance();
+        static Main& instance();
         void initialize(int argc, char** argv);
 
         void setMainWindow(MainWindow* mainWindow);
@@ -47,6 +47,8 @@ class Main : public QObject
     private:
         Main();
         ~Main();
+
+        static Main singleton;
 
         struct
         {

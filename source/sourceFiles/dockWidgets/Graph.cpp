@@ -32,11 +32,11 @@
 Graph::Graph(QWidget *parent)
     : QDockWidget(parent)
 {
-    setWindowTitle(Main::instance()->translate("Graph", "Graph"));
+    setWindowTitle(Main::instance().translate("Graph", "Graph"));
     setObjectName("graph");
     construct();
 
-    connect(Main::instance(), SIGNAL(languageChanged()), this, SLOT(changeLanguage()));
+    connect(&Main::instance(), SIGNAL(languageChanged()), this, SLOT(changeLanguage()));
 }
 
 Graph::~Graph()
@@ -93,13 +93,13 @@ void Graph::updateStatistics(QImage image)
 
 void Graph::changeLanguage()
 {
-    setWindowTitle(Main::instance()->translate("Graph", "Graph"));
-    centralWidget->setTabText(0, Main::instance()->translate("Graph", "Red"));
-    centralWidget->setTabText(1, Main::instance()->translate("Graph", "Green"));
-    centralWidget->setTabText(2, Main::instance()->translate("Graph", "Blue"));
-    centralWidget->setTabText(3, Main::instance()->translate("Graph", "Hue"));
-    centralWidget->setTabText(4, Main::instance()->translate("Graph", "Saturation"));
-    centralWidget->setTabText(5, Main::instance()->translate("Graph", "Value"));
+    setWindowTitle(Main::instance().translate("Graph", "Graph"));
+    centralWidget->setTabText(0, Main::instance().translate("Graph", "Red"));
+    centralWidget->setTabText(1, Main::instance().translate("Graph", "Green"));
+    centralWidget->setTabText(2, Main::instance().translate("Graph", "Blue"));
+    centralWidget->setTabText(3, Main::instance().translate("Graph", "Hue"));
+    centralWidget->setTabText(4, Main::instance().translate("Graph", "Saturation"));
+    centralWidget->setTabText(5, Main::instance().translate("Graph", "Value"));
 }
 
 void Graph::construct()
@@ -127,11 +127,11 @@ void Graph::construct()
     renderers[VALUE]->setPrimaryColor(0.5, 0.4, 0.3);
     renderers[VALUE]->setSecondaryColor(1.0, 1.0, 1.0);
 
-    addRenderer(Main::instance()->translate("MainWindow", "Red"), renderers[RED]);
-    addRenderer(Main::instance()->translate("MainWindow", "Green"), renderers[GREEN]);
-    addRenderer(Main::instance()->translate("MainWindow", "Blue"), renderers[BLUE]);
-    addRenderer(Main::instance()->translate("MainWindow", "Hue"), renderers[HUE]);
-    addRenderer(Main::instance()->translate("MainWindow", "Saturation"), renderers[SATURATION]);
-    addRenderer(Main::instance()->translate("MainWindow", "Value"), renderers[VALUE]);
+    addRenderer(Main::instance().translate("MainWindow", "Red"), renderers[RED]);
+    addRenderer(Main::instance().translate("MainWindow", "Green"), renderers[GREEN]);
+    addRenderer(Main::instance().translate("MainWindow", "Blue"), renderers[BLUE]);
+    addRenderer(Main::instance().translate("MainWindow", "Hue"), renderers[HUE]);
+    addRenderer(Main::instance().translate("MainWindow", "Saturation"), renderers[SATURATION]);
+    addRenderer(Main::instance().translate("MainWindow", "Value"), renderers[VALUE]);
     centralWidget->setCurrentIndex(0);
 }

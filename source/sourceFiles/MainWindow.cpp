@@ -27,7 +27,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     setWindowTitle("fast-bit");
     setObjectName("mainWindow");
-    Main::instance()->setMainWindow(this);
+    Main::instance().setMainWindow(this);
 
     construct();
     changeLanguage();
@@ -42,7 +42,7 @@ void MainWindow::openFileDialog()
 {
     QString fileName =
     QFileDialog::getOpenFileName(this,
-                                 Main::instance()->translate("MainWindow", "Open File"),
+                                 Main::instance().translate("MainWindow", "Open File"),
                                  "examples/");
     if(fileName.size())
         loadFile(fileName);
@@ -53,13 +53,13 @@ void MainWindow::saveFileDialog()
     ImageOpenGLRenderer *renderer=dynamic_cast<ImageOpenGLRenderer*>(documents->currentWidget());
     if(!renderer)
     {
-        console->print(Main::instance()->translate("MainWindow", "Error: No image available."));
+        console->print(Main::instance().translate("MainWindow", "Error: No image available."));
         return;
     }
 
     QString fileName =
     QFileDialog::getSaveFileName(this,
-                                 Main::instance()->translate("MainWindow", "Save File"),
+                                 Main::instance().translate("MainWindow", "Save File"),
                                  "examples/"+renderer->title());
     if(fileName.size())
         saveFile(fileName);
@@ -70,13 +70,13 @@ void MainWindow::saveAsFileDialog()
     ImageOpenGLRenderer *renderer=dynamic_cast<ImageOpenGLRenderer*>(documents->currentWidget());
     if(!renderer)
     {
-        console->print(Main::instance()->translate("MainWindow", "Error: No image available."));
+        console->print(Main::instance().translate("MainWindow", "Error: No image available."));
         return;
     }
 
     QString fileName =
     QFileDialog::getSaveFileName(this,
-                                 Main::instance()->translate("MainWindow", "Save File"),
+                                 Main::instance().translate("MainWindow", "Save File"),
                                  "examples/"+renderer->title());
     if(fileName.size())
         saveFile(fileName);
@@ -87,13 +87,13 @@ void MainWindow::saveHistoryDialog()
     ImageOpenGLRenderer *renderer=dynamic_cast<ImageOpenGLRenderer*>(documents->currentWidget());
     if(!renderer)
     {
-        console->print(Main::instance()->translate("MainWindow", "Error: No image available."));
+        console->print(Main::instance().translate("MainWindow", "Error: No image available."));
         return;
     }
 
     QString directoryName =
     QFileDialog::getExistingDirectory(this,
-                                 Main::instance()->translate("MainWindow", "Save History"),
+                                 Main::instance().translate("MainWindow", "Save History"),
                                  "examples/"+renderer->title());
     if(directoryName.size())
         saveHistory(directoryName);
@@ -125,7 +125,7 @@ void MainWindow::autoBrightness()
     if(!renderer)
         return;
 
-    imageInformation.description = Main::instance()->translate("MainWindow", "Auto Brightness");
+    imageInformation.description = Main::instance().translate("MainWindow", "Auto Brightness");
     imageInformation.renderer=renderer;
     imageInformation.time.restart();
 
@@ -140,7 +140,7 @@ void MainWindow::calculateRedChannel()
     if(!renderer)
         return;
 
-    imageInformation.description = Main::instance()->translate("MainWindow", "Red Channel");
+    imageInformation.description = Main::instance().translate("MainWindow", "Red Channel");
     imageInformation.renderer=renderer;
     imageInformation.time.restart();
 
@@ -155,7 +155,7 @@ void MainWindow::calculateGreenChannel()
     if(!renderer)
         return;
 
-    imageInformation.description = Main::instance()->translate("MainWindow", "Green Channel");
+    imageInformation.description = Main::instance().translate("MainWindow", "Green Channel");
     imageInformation.renderer=renderer;
     imageInformation.time.restart();
 
@@ -170,7 +170,7 @@ void MainWindow::calculateBlueChannel()
     if(!renderer)
         return;
 
-    imageInformation.description = Main::instance()->translate("MainWindow", "Blue Channel");
+    imageInformation.description = Main::instance().translate("MainWindow", "Blue Channel");
     imageInformation.renderer=renderer;
     imageInformation.time.restart();
 
@@ -202,7 +202,7 @@ void MainWindow::grayValueSplay()
     if(!renderer)
         return;
 
-    imageInformation.description = Main::instance()->translate("MainWindow", "Gray Value Splay");
+    imageInformation.description = Main::instance().translate("MainWindow", "Gray Value Splay");
     imageInformation.renderer=renderer;
     imageInformation.time.restart();
 
@@ -217,7 +217,7 @@ void MainWindow::invertImage()
     if(!renderer)
         return;
 
-    imageInformation.description = Main::instance()->translate("MainWindow", "Invert Image");
+    imageInformation.description = Main::instance().translate("MainWindow", "Invert Image");
     imageInformation.renderer=renderer;
     imageInformation.time.restart();
 
@@ -230,8 +230,8 @@ void MainWindow::threshold()
 {
     bool ok;
     int thr=QInputDialog::getInt(this,
-                                 Main::instance()->translate("MainWindow", "Threshold"),
-                                 Main::instance()->translate("MainWindow", "Enter threshold value from 0 to +255:"), 128, 0, 255, 1, &ok);
+                                 Main::instance().translate("MainWindow", "Threshold"),
+                                 Main::instance().translate("MainWindow", "Enter threshold value from 0 to +255:"), 128, 0, 255, 1, &ok);
     if(!ok)
         return;
 
@@ -239,7 +239,7 @@ void MainWindow::threshold()
     if(!renderer)
         return;
 
-    imageInformation.description = Main::instance()->translate("MainWindow", "Threshold");
+    imageInformation.description = Main::instance().translate("MainWindow", "Threshold");
     imageInformation.renderer=renderer;
     imageInformation.time.restart();
 
@@ -254,7 +254,7 @@ void MainWindow::erode()
     if(!renderer)
         return;
 
-    imageInformation.description = Main::instance()->translate("MainWindow", "Erosion");
+    imageInformation.description = Main::instance().translate("MainWindow", "Erosion");
     imageInformation.renderer=renderer;
     imageInformation.time.restart();
 
@@ -267,8 +267,8 @@ void MainWindow::removeColor()
 {
     bool ok;
     int value = QInputDialog::getInt(this,
-                                     Main::instance()->translate("MainWindow", "Color Value"),
-                                     Main::instance()->translate("MainWindow", "Choose which color to remove:"), 128, 1, 255, 1, &ok);
+                                     Main::instance().translate("MainWindow", "Color Value"),
+                                     Main::instance().translate("MainWindow", "Choose which color to remove:"), 128, 1, 255, 1, &ok);
     if(!ok)
         return;
 
@@ -276,7 +276,7 @@ void MainWindow::removeColor()
     if(!renderer)
         return;
 
-    imageInformation.description = Main::instance()->translate("MainWindow", "Remove Color");
+    imageInformation.description = Main::instance().translate("MainWindow", "Remove Color");
     imageInformation.renderer=renderer;
     imageInformation.time.restart();
 
@@ -291,7 +291,7 @@ void MainWindow::symmetricDifferentiationFilter()
     if(!renderer)
         return;
 
-    imageInformation.description = Main::instance()->translate("MainWindow", "Symmetric Differentation Filter");
+    imageInformation.description = Main::instance().translate("MainWindow", "Symmetric Differentation Filter");
     imageInformation.renderer=renderer;
     imageInformation.time.restart();
 
@@ -306,7 +306,7 @@ void MainWindow::prewittFilter()
     if(!renderer)
         return;
 
-    imageInformation.description = Main::instance()->translate("MainWindow", "Prewitt Filter");
+    imageInformation.description = Main::instance().translate("MainWindow", "Prewitt Filter");
     imageInformation.renderer=renderer;
     imageInformation.time.restart();
 
@@ -321,7 +321,7 @@ void MainWindow::sobelFilter()
     if(!renderer)
         return;
 
-    imageInformation.description = Main::instance()->translate("MainWindow", "Sobel Filter");
+    imageInformation.description = Main::instance().translate("MainWindow", "Sobel Filter");
     imageInformation.renderer=renderer;
     imageInformation.time.restart();
 
@@ -336,7 +336,7 @@ void MainWindow::laPlaceFilter()
     if(!renderer)
         return;
 
-    imageInformation.description = Main::instance()->translate("MainWindow", "LaPlace Filter");
+    imageInformation.description = Main::instance().translate("MainWindow", "LaPlace Filter");
     imageInformation.renderer=renderer;
     imageInformation.time.restart();
 
@@ -351,7 +351,7 @@ void MainWindow::kirschCompassFilter()
     if(!renderer)
         return;
 
-    imageInformation.description = Main::instance()->translate("MainWindow", "Kirsch Compass Filter");
+    imageInformation.description = Main::instance().translate("MainWindow", "Kirsch Compass Filter");
     imageInformation.renderer=renderer;
     imageInformation.time.restart();
 
@@ -366,7 +366,7 @@ void MainWindow::makeAbsolute()
     if(!renderer)
         return;
 
-    imageInformation.description = Main::instance()->translate("MainWindow", "Make Absolute");
+    imageInformation.description = Main::instance().translate("MainWindow", "Make Absolute");
     imageInformation.renderer=renderer;
     imageInformation.time.restart();
 
@@ -381,7 +381,7 @@ void MainWindow::detectZeroCrossings()
     if(!renderer)
         return;
 
-    imageInformation.description = Main::instance()->translate("MainWindow", "Detect Zero Crossings");
+    imageInformation.description = Main::instance().translate("MainWindow", "Detect Zero Crossings");
     imageInformation.renderer=renderer;
     imageInformation.time.restart();
 
@@ -401,7 +401,7 @@ void MainWindow::addImage()
     if(!renderer||!secondRenderer)
         return;
 
-    imageInformation.description = Main::instance()->translate("MainWindow", "Addition");
+    imageInformation.description = Main::instance().translate("MainWindow", "Addition");
     imageInformation.renderer=renderer;
     imageInformation.time.restart();
 
@@ -422,7 +422,7 @@ void MainWindow::subtractImage()
     if(!renderer||!secondRenderer)
         return;
 
-    imageInformation.description = Main::instance()->translate("MainWindow", "Subtraction");
+    imageInformation.description = Main::instance().translate("MainWindow", "Subtraction");
     imageInformation.renderer=renderer;
     imageInformation.time.restart();
 
@@ -443,7 +443,7 @@ void MainWindow::multiplicateImage()
     if(!renderer||!secondRenderer)
         return;
 
-    imageInformation.description = Main::instance()->translate("MainWindow", "Multiplication");
+    imageInformation.description = Main::instance().translate("MainWindow", "Multiplication");
     imageInformation.renderer=renderer;
     imageInformation.time.restart();
 
@@ -464,7 +464,7 @@ void MainWindow::divideImage()
     if(!renderer||!secondRenderer)
         return;
 
-    imageInformation.description = Main::instance()->translate("MainWindow", "Division");
+    imageInformation.description = Main::instance().translate("MainWindow", "Division");
     imageInformation.renderer=renderer;
     imageInformation.time.restart();
 
@@ -478,8 +478,8 @@ void MainWindow::brightness()
 {
     bool ok;
     int bgt=QInputDialog::getInt(this,
-                                 Main::instance()->translate("MainWindow", "Brightness"),
-                                 Main::instance()->translate("MainWindow", "Enter brightness value from -255 to +255:"),
+                                 Main::instance().translate("MainWindow", "Brightness"),
+                                 Main::instance().translate("MainWindow", "Enter brightness value from -255 to +255:"),
                                  32, -255, 255, 1, &ok);
     if(!ok)
         return;
@@ -488,7 +488,7 @@ void MainWindow::brightness()
     if(!renderer)
         return;
 
-    imageInformation.description = Main::instance()->translate("MainWindow", "Brightness");
+    imageInformation.description = Main::instance().translate("MainWindow", "Brightness");
     imageInformation.renderer=renderer;
     imageInformation.time.restart();
 
@@ -503,8 +503,8 @@ void MainWindow::rotateImage()
     bool ok;
     int angle=
     QInputDialog::getInt(this,
-                         Main::instance()->translate("MainWindow", "Angle"),
-                         Main::instance()->translate("MainWindow", "Enter a rotation angle from -360 to +360 degrees:"),
+                         Main::instance().translate("MainWindow", "Angle"),
+                         Main::instance().translate("MainWindow", "Enter a rotation angle from -360 to +360 degrees:"),
                          0, -360, 360, 1, &ok);
     if(!ok)
         return;
@@ -513,7 +513,7 @@ void MainWindow::rotateImage()
     if(!renderer)
         return;
 
-    imageInformation.description = Main::instance()->translate("MainWindow", "Rotation");
+    imageInformation.description = Main::instance().translate("MainWindow", "Rotation");
     imageInformation.renderer=renderer;
     imageInformation.time.restart();
 
@@ -527,8 +527,8 @@ void MainWindow::fillUpHorizontalGaps()
 {
     bool ok;
     int totalLoops = QInputDialog::getInt(this,
-                                          Main::instance()->translate("MainWindow", "Strength"),
-                                          Main::instance()->translate("MainWindow", "Enter loop runs:"),
+                                          Main::instance().translate("MainWindow", "Strength"),
+                                          Main::instance().translate("MainWindow", "Enter loop runs:"),
                                           1, 1, 32768, 1, &ok);
     if(!ok)
         return;
@@ -537,7 +537,7 @@ void MainWindow::fillUpHorizontalGaps()
     if(!renderer)
         return;
 
-    imageInformation.description = QString(Main::instance()->translate("MainWindow", "Fill Up Horizontal Gaps (%1x)")).arg(totalLoops);
+    imageInformation.description = QString(Main::instance().translate("MainWindow", "Fill Up Horizontal Gaps (%1x)")).arg(totalLoops);
     imageInformation.renderer=renderer;
     imageInformation.time.restart();
 
@@ -551,8 +551,8 @@ void MainWindow::fillUpVerticalGaps()
 {
     bool ok;
     int totalLoops = QInputDialog::getInt(this,
-                                          Main::instance()->translate("MainWindow", "Strength"),
-                                          Main::instance()->translate("MainWindow", "Enter loop runs:"),
+                                          Main::instance().translate("MainWindow", "Strength"),
+                                          Main::instance().translate("MainWindow", "Enter loop runs:"),
                                           1, 1, 32768, 1, &ok);
     if(!ok)
         return;
@@ -561,7 +561,7 @@ void MainWindow::fillUpVerticalGaps()
     if(!renderer)
         return;
 
-    imageInformation.description = QString(Main::instance()->translate("MainWindow", "Fill Up Vertical Gaps (%1x)")).arg(totalLoops);
+    imageInformation.description = QString(Main::instance().translate("MainWindow", "Fill Up Vertical Gaps (%1x)")).arg(totalLoops);
     imageInformation.renderer=renderer;
     imageInformation.time.restart();
 
@@ -577,7 +577,7 @@ void MainWindow::lively()
     if(!renderer)
         return;
 
-    imageInformation.description = Main::instance()->translate("MainWindow", "Lively");
+    imageInformation.description = Main::instance().translate("MainWindow", "Lively");
     imageInformation.renderer=renderer;
     imageInformation.time.restart();
 
@@ -597,7 +597,7 @@ void MainWindow::convertToGrayscale()
     if(!renderer)
         return;
 
-    imageInformation.description = Main::instance()->translate("MainWindow", "Grayscale");
+    imageInformation.description = Main::instance().translate("MainWindow", "Grayscale");
     imageInformation.renderer=renderer;
     imageInformation.time.restart();
 
@@ -612,7 +612,7 @@ void MainWindow::convertToVectorImage()
     if(!renderer)
         return;
 
-    imageInformation.description = Main::instance()->translate("MainWindow", "Convert to Vector Image");
+    imageInformation.description = Main::instance().translate("MainWindow", "Convert to Vector Image");
     imageInformation.renderer=renderer;
     imageInformation.time.restart();
 
@@ -630,8 +630,8 @@ void MainWindow::convertToReducedColors()
 {
     bool ok;
     int stepping = QInputDialog::getInt(this,
-                                        Main::instance()->translate("MainWindow", "Color stepping"),
-                                        Main::instance()->translate("MainWindow", "Enter color stepping:"),
+                                        Main::instance().translate("MainWindow", "Color stepping"),
+                                        Main::instance().translate("MainWindow", "Enter color stepping:"),
                                         16, 1, 255, 1, &ok);
     if(!ok)
         return;
@@ -640,7 +640,7 @@ void MainWindow::convertToReducedColors()
     if(!renderer)
         return;
 
-    imageInformation.description = Main::instance()->translate("MainWindow", "Reduced Colors");
+    imageInformation.description = Main::instance().translate("MainWindow", "Reduced Colors");
     imageInformation.renderer=renderer;
     imageInformation.time.restart();
 
@@ -653,20 +653,20 @@ void MainWindow::convertToReducedColors()
 void MainWindow::infoAbout()
 {
     QMessageBox::information(this,
-                             Main::instance()->translate("MainWindow", "About"),
-                             Main::instance()->translate("MainWindow", "This is fast-bit in alpha stage. \nDevelopers:\nJacob Dawid\nHamza Üstün"));
+                             Main::instance().translate("MainWindow", "About"),
+                             Main::instance().translate("MainWindow", "This is fast-bit in alpha stage. \nDevelopers:\nJacob Dawid\nHamza Üstün"));
 }
 
 void MainWindow::saveFile(QString fileName)
 {
-    console->print(Main::instance()->translate("MainWindow", "Saving file: ")+fileName+".");
+    console->print(Main::instance().translate("MainWindow", "Saving file: ")+fileName+".");
     ImageOpenGLRenderer *renderer=dynamic_cast<ImageOpenGLRenderer*>(documents->currentWidget());
     renderer->image().save(fileName);
 }
 
 void MainWindow::saveHistory(QString directoryName)
 {
-    console->print(Main::instance()->translate("MainWindow", "Saving history:"));
+    console->print(Main::instance().translate("MainWindow", "Saving history:"));
     ImageOpenGLRenderer *renderer=dynamic_cast<ImageOpenGLRenderer*>(documents->currentWidget());
     QStack<QImage> history = renderer->history();
     QString baseName = renderer->title();
@@ -688,7 +688,7 @@ void MainWindow::saveHistory(QString directoryName)
 
 void MainWindow::loadFile(QString fileName)
 {
-    console->print(Main::instance()->translate("MainWindow", "Loading file: ")+fileName+".");
+    console->print(Main::instance().translate("MainWindow", "Loading file: ")+fileName+".");
 
     ImageOpenGLRenderer *newRenderer=new ImageOpenGLRenderer(this);
     QImage image(fileName);
@@ -699,8 +699,8 @@ void MainWindow::loadFile(QString fileName)
         if(image.isNull())
         {
             QMessageBox::warning(this,
-                                 Main::instance()->translate("MainWindow", "Error"),
-                                 Main::instance()->translate("MainWindow", "The requested file could not be opened."));
+                                 Main::instance().translate("MainWindow", "Error"),
+                                 Main::instance().translate("MainWindow", "The requested file could not be opened."));
             return;
         }
     }
@@ -771,8 +771,8 @@ int MainWindow::askUserForImage()
         openDocuments[index]=QString("%1: %2").arg(index).arg(openDocuments[index]);
 
     QString imageName = QInputDialog::getItem(this,
-                          Main::instance()->translate("MainWindow", "Choose image"),
-                          Main::instance()->translate("MainWindow", "Choose image to perform the operation with:"),
+                          Main::instance().translate("MainWindow", "Choose image"),
+                          Main::instance().translate("MainWindow", "Choose image to perform the operation with:"),
                           openDocuments, 0, false, &ok);
 
     if(ok&&openDocuments.contains(imageName))
@@ -786,27 +786,27 @@ int MainWindow::askUserForImage()
 
 void MainWindow::setLanguageToEnglish()
 {
-    Main::instance()->setLanguage("english");
+    Main::instance().setLanguage("english");
 }
 
 void MainWindow::setLanguageToFrench()
 {
-    Main::instance()->setLanguage("french");
+    Main::instance().setLanguage("french");
 }
 
 void MainWindow::setLanguageToGerman()
 {
-    Main::instance()->setLanguage("german");
+    Main::instance().setLanguage("german");
 }
 
 void MainWindow::setLanguageToPolish()
 {
-    Main::instance()->setLanguage("polish");
+    Main::instance().setLanguage("polish");
 }
 
 void MainWindow::setLanguageToTurkish()
 {
-    Main::instance()->setLanguage("turkish");
+    Main::instance().setLanguage("turkish");
 }
 
 void MainWindow::contributeLanguageInformation()
@@ -850,69 +850,69 @@ void MainWindow::showPluginManager()
 
 void MainWindow::changeLanguage()
 {
-    menu["File"]->setTitle(Main::instance()->translate("MainWindow", "File"));
-    action["Open"]->setText(Main::instance()->translate("MainWindow", "Open"));
-    action["Save"]->setText(Main::instance()->translate("MainWindow", "Save"));
-    action["Save As"]->setText(Main::instance()->translate("MainWindow", "Save As"));
-    action["Save History"]->setText(Main::instance()->translate("MainWindow", "Save History"));
-    action["Plugin Manager"]->setText(Main::instance()->translate("MainWindow", "Plugin Manager"));
+    menu["File"]->setTitle(Main::instance().translate("MainWindow", "File"));
+    action["Open"]->setText(Main::instance().translate("MainWindow", "Open"));
+    action["Save"]->setText(Main::instance().translate("MainWindow", "Save"));
+    action["Save As"]->setText(Main::instance().translate("MainWindow", "Save As"));
+    action["Save History"]->setText(Main::instance().translate("MainWindow", "Save History"));
+    action["Plugin Manager"]->setText(Main::instance().translate("MainWindow", "Plugin Manager"));
 
-    menu["History"]->setTitle(Main::instance()->translate("MainWindow", "History"));
-    action["Push"]->setText(Main::instance()->translate("MainWindow", "Push"));
-    action["Pop"]->setText(Main::instance()->translate("MainWindow", "Pop"));
+    menu["History"]->setTitle(Main::instance().translate("MainWindow", "History"));
+    action["Push"]->setText(Main::instance().translate("MainWindow", "Push"));
+    action["Pop"]->setText(Main::instance().translate("MainWindow", "Pop"));
 
-    menu["General"]->setTitle(Main::instance()->translate("MainWindow", "General"));
-    action["Red Channel"]->setText(Main::instance()->translate("MainWindow", "Red Channel"));
-    action["Green Channel"]->setText(Main::instance()->translate("MainWindow", "Green Channel"));
-    action["Blue Channel"]->setText(Main::instance()->translate("MainWindow", "Blue Channel"));
-    action["Copy Image"]->setText(Main::instance()->translate("MainWindow", "Copy Image"));
-    action["Invert Image"]->setText(Main::instance()->translate("MainWindow", "Invert Image"));
-    action["Threshold"]->setText(Main::instance()->translate("MainWindow", "Threshold"));
-    action["Erosion"]->setText(Main::instance()->translate("MainWindow", "Erosion"));
-    action["Rotate Image"]->setText(Main::instance()->translate("MainWindow", "Rotate Image"));
-    action["Remove Color"]->setText(Main::instance()->translate("MainWindow", "Remove Color"));
+    menu["General"]->setTitle(Main::instance().translate("MainWindow", "General"));
+    action["Red Channel"]->setText(Main::instance().translate("MainWindow", "Red Channel"));
+    action["Green Channel"]->setText(Main::instance().translate("MainWindow", "Green Channel"));
+    action["Blue Channel"]->setText(Main::instance().translate("MainWindow", "Blue Channel"));
+    action["Copy Image"]->setText(Main::instance().translate("MainWindow", "Copy Image"));
+    action["Invert Image"]->setText(Main::instance().translate("MainWindow", "Invert Image"));
+    action["Threshold"]->setText(Main::instance().translate("MainWindow", "Threshold"));
+    action["Erosion"]->setText(Main::instance().translate("MainWindow", "Erosion"));
+    action["Rotate Image"]->setText(Main::instance().translate("MainWindow", "Rotate Image"));
+    action["Remove Color"]->setText(Main::instance().translate("MainWindow", "Remove Color"));
 
-    menu["Improvement"]->setTitle(Main::instance()->translate("MainWindow", "Improvement"));
-    action["Brightness"]->setText(Main::instance()->translate("MainWindow", "Brightness"));
-    action["Auto Brightness"]->setText(Main::instance()->translate("MainWindow", "Auto Brightness"));
-    action["Gray Value Splay"]->setText(Main::instance()->translate("MainWindow", "Gray Value Splay"));
-    action["Fill Up Horizontal Gaps"]->setText(Main::instance()->translate("MainWindow", "Fill Up Horizontal Gaps"));
-    action["Fill Up Vertical Gaps"]->setText(Main::instance()->translate("MainWindow", "Fill Up Vertical Gaps"));
-    action["Lively"]->setText(Main::instance()->translate("MainWindow", "Lively"));
+    menu["Improvement"]->setTitle(Main::instance().translate("MainWindow", "Improvement"));
+    action["Brightness"]->setText(Main::instance().translate("MainWindow", "Brightness"));
+    action["Auto Brightness"]->setText(Main::instance().translate("MainWindow", "Auto Brightness"));
+    action["Gray Value Splay"]->setText(Main::instance().translate("MainWindow", "Gray Value Splay"));
+    action["Fill Up Horizontal Gaps"]->setText(Main::instance().translate("MainWindow", "Fill Up Horizontal Gaps"));
+    action["Fill Up Vertical Gaps"]->setText(Main::instance().translate("MainWindow", "Fill Up Vertical Gaps"));
+    action["Lively"]->setText(Main::instance().translate("MainWindow", "Lively"));
 
-    menu["Arithmetic"]->setTitle(Main::instance()->translate("MainWindow", "Arithmetic"));
-    action["Add Image"]->setText(Main::instance()->translate("MainWindow", "Add Image"));
-    action["Subtract Image"]->setText(Main::instance()->translate("MainWindow", "Subtract Image"));
-    action["Multiplicate Image"]->setText(Main::instance()->translate("MainWindow", "Multiplicate Image"));
-    action["Divide Image"]->setText(Main::instance()->translate("MainWindow", "Divide Image"));
+    menu["Arithmetic"]->setTitle(Main::instance().translate("MainWindow", "Arithmetic"));
+    action["Add Image"]->setText(Main::instance().translate("MainWindow", "Add Image"));
+    action["Subtract Image"]->setText(Main::instance().translate("MainWindow", "Subtract Image"));
+    action["Multiplicate Image"]->setText(Main::instance().translate("MainWindow", "Multiplicate Image"));
+    action["Divide Image"]->setText(Main::instance().translate("MainWindow", "Divide Image"));
 
-    menu["Find Edges"]->setTitle(Main::instance()->translate("MainWindow", "Find Edges"));
-    action["Symmetric Differentiation Filter"]->setText(Main::instance()->translate("MainWindow", "Symmetric Differentiation"));
-    action["Prewitt Filter"]->setText(Main::instance()->translate("MainWindow", "Prewitt"));
-    action["Sobel Filter"]->setText(Main::instance()->translate("MainWindow", "Sobel"));
-    action["LaPlace Filter"]->setText(Main::instance()->translate("MainWindow", "LaPlace"));
-    action["Kirsch Compass Filter"]->setText(Main::instance()->translate("MainWindow", "Kirsch (Compass)"));
-    action["Make Absolute"]->setText(Main::instance()->translate("MainWindow", "Make Absolute"));
-    action["Detect Zero Crossings"]->setText(Main::instance()->translate("MainWindow", "Detect Zero Crossings"));
+    menu["Find Edges"]->setTitle(Main::instance().translate("MainWindow", "Find Edges"));
+    action["Symmetric Differentiation Filter"]->setText(Main::instance().translate("MainWindow", "Symmetric Differentiation"));
+    action["Prewitt Filter"]->setText(Main::instance().translate("MainWindow", "Prewitt"));
+    action["Sobel Filter"]->setText(Main::instance().translate("MainWindow", "Sobel"));
+    action["LaPlace Filter"]->setText(Main::instance().translate("MainWindow", "LaPlace"));
+    action["Kirsch Compass Filter"]->setText(Main::instance().translate("MainWindow", "Kirsch (Compass)"));
+    action["Make Absolute"]->setText(Main::instance().translate("MainWindow", "Make Absolute"));
+    action["Detect Zero Crossings"]->setText(Main::instance().translate("MainWindow", "Detect Zero Crossings"));
 
-    menu["Convert"]->setTitle(Main::instance()->translate("MainWindow", "Convert"));
-    action["to Grayscale"]->setText(Main::instance()->translate("MainWindow", "to Grayscale"));
-    action["to Reduced Colors"]->setText(Main::instance()->translate("MainWindow", "to Reduced Colors"));
-    action["to Vector Image"]->setText(Main::instance()->translate("MainWindow", "to Vector Image"));
+    menu["Convert"]->setTitle(Main::instance().translate("MainWindow", "Convert"));
+    action["to Grayscale"]->setText(Main::instance().translate("MainWindow", "to Grayscale"));
+    action["to Reduced Colors"]->setText(Main::instance().translate("MainWindow", "to Reduced Colors"));
+    action["to Vector Image"]->setText(Main::instance().translate("MainWindow", "to Vector Image"));
 
-    menu["Info"]->setTitle(Main::instance()->translate("MainWindow", "Info"));
-    action["About"]->setText(Main::instance()->translate("MainWindow", "About"));
+    menu["Info"]->setTitle(Main::instance().translate("MainWindow", "Info"));
+    action["About"]->setText(Main::instance().translate("MainWindow", "About"));
 
-    menu["Language"]->setTitle(Main::instance()->translate("MainWindow", "Language"));
-    action["English"]->setText(Main::instance()->translate("MainWindow", "English"));
-    action["French"]->setText(Main::instance()->translate("MainWindow", "French"));
-    action["German"]->setText(Main::instance()->translate("MainWindow", "German"));
+    menu["Language"]->setTitle(Main::instance().translate("MainWindow", "Language"));
+    action["English"]->setText(Main::instance().translate("MainWindow", "English"));
+    action["French"]->setText(Main::instance().translate("MainWindow", "French"));
+    action["German"]->setText(Main::instance().translate("MainWindow", "German"));
 }
 
 void MainWindow::handleImage(QImage image)
 {
     imageInformation.renderer->renderImage(image);
-    console->print(QString(Main::instance()->translate("MainWindow", "Performed \'%1\' in %2 ms")).arg(imageInformation.description).arg(imageInformation.time.elapsed()));
+    console->print(QString(Main::instance().translate("MainWindow", "Performed \'%1\' in %2 ms")).arg(imageInformation.description).arg(imageInformation.time.elapsed()));
     enableOrDisableImageProcessingMenus();
     updateGraphWindow();
 }
@@ -928,114 +928,114 @@ void MainWindow::displayImage(QImage image, QString title)
 
 void MainWindow::construct()
 {
-    menu["File"]=menuBar()->addMenu(Main::instance()->translate("MainWindow", "File"));
-    action["Open"]=menu["File"]->addAction(Main::instance()->translate("MainWindow", "Open"));
-    action["Save"]=menu["File"]->addAction(Main::instance()->translate("MainWindow", "Save"));
-    action["Save As"]=menu["File"]->addAction(Main::instance()->translate("MainWindow", "Save As"));
-    action["Save History"]=menu["File"]->addAction(Main::instance()->translate("MainWindow", "Save History"));
-    action["Plugin Manager"]=menu["File"]->addAction(Main::instance()->translate("MainWindow", "Plugin Manager"));
+    menu["File"]=menuBar()->addMenu(Main::instance().translate("MainWindow", "File"));
+    action["Open"]=menu["File"]->addAction(Main::instance().translate("MainWindow", "Open"));
+    action["Save"]=menu["File"]->addAction(Main::instance().translate("MainWindow", "Save"));
+    action["Save As"]=menu["File"]->addAction(Main::instance().translate("MainWindow", "Save As"));
+    action["Save History"]=menu["File"]->addAction(Main::instance().translate("MainWindow", "Save History"));
+    action["Plugin Manager"]=menu["File"]->addAction(Main::instance().translate("MainWindow", "Plugin Manager"));
 
-    menu["History"]=menuBar()->addMenu(Main::instance()->translate("MainWindow", "History"));
-    action["Push"]=menu["History"]->addAction(Main::instance()->translate("MainWindow", "Push"));
+    menu["History"]=menuBar()->addMenu(Main::instance().translate("MainWindow", "History"));
+    action["Push"]=menu["History"]->addAction(Main::instance().translate("MainWindow", "Push"));
     action["Push"]->setIcon(QIcon("media/icons/126293-simple-black-square-icon-alphanumeric-plus-sign-simple.png"));
-    action["Pop"]=menu["History"]->addAction(Main::instance()->translate("MainWindow", "Pop"));
+    action["Pop"]=menu["History"]->addAction(Main::instance().translate("MainWindow", "Pop"));
     action["Pop"]->setIcon(QIcon("media/icons/126265-simple-black-square-icon-alphanumeric-minus-sign-simple.png"));
     menu["History"]->setEnabled(false);
 
-    menu["General"]=menuBar()->addMenu(Main::instance()->translate("MainWindow", "General"));
-    action["Red Channel"]=menu["General"]->addAction(Main::instance()->translate("MainWindow", "Red Channel"));
+    menu["General"]=menuBar()->addMenu(Main::instance().translate("MainWindow", "General"));
+    action["Red Channel"]=menu["General"]->addAction(Main::instance().translate("MainWindow", "Red Channel"));
     action["Red Channel"]->setIcon(QIcon("media/icons/126172-simple-black-square-icon-alphanumeric-bracket-curley.png"));
-    action["Green Channel"]=menu["General"]->addAction(Main::instance()->translate("MainWindow", "Green Channel"));
+    action["Green Channel"]=menu["General"]->addAction(Main::instance().translate("MainWindow", "Green Channel"));
     action["Green Channel"]->setIcon(QIcon("media/icons/126172-simple-black-square-icon-alphanumeric-bracket-curley.png"));
-    action["Blue Channel"]=menu["General"]->addAction(Main::instance()->translate("MainWindow", "Blue Channel"));
+    action["Blue Channel"]=menu["General"]->addAction(Main::instance().translate("MainWindow", "Blue Channel"));
     action["Blue Channel"]->setIcon(QIcon("media/icons/126172-simple-black-square-icon-alphanumeric-bracket-curley.png"));
     menu["General"]->addSeparator();
-    action["Copy Image"]=menu["General"]->addAction(Main::instance()->translate("MainWindow", "Copy Image"));
+    action["Copy Image"]=menu["General"]->addAction(Main::instance().translate("MainWindow", "Copy Image"));
     action["Copy Image"]->setIcon(QIcon("media/icons/126172-simple-black-square-icon-alphanumeric-bracket-curley.png"));
-    action["Invert Image"]=menu["General"]->addAction(Main::instance()->translate("MainWindow", "Invert Image"));
+    action["Invert Image"]=menu["General"]->addAction(Main::instance().translate("MainWindow", "Invert Image"));
     action["Invert Image"]->setIcon(QIcon("media/icons/126172-simple-black-square-icon-alphanumeric-bracket-curley.png"));
-    action["Threshold"]=menu["General"]->addAction(Main::instance()->translate("MainWindow", "Threshold"));
+    action["Threshold"]=menu["General"]->addAction(Main::instance().translate("MainWindow", "Threshold"));
     action["Threshold"]->setIcon(QIcon("media/icons/126172-simple-black-square-icon-alphanumeric-bracket-curley.png"));
-    action["Erosion"]=menu["General"]->addAction(Main::instance()->translate("MainWindow", "Erosion"));
+    action["Erosion"]=menu["General"]->addAction(Main::instance().translate("MainWindow", "Erosion"));
     action["Erosion"]->setIcon(QIcon("media/icons/126172-simple-black-square-icon-alphanumeric-bracket-curley.png"));
     menu["General"]->addSeparator();
-    action["Rotate Image"]=menu["General"]->addAction(Main::instance()->translate("MainWindow", "Rotate Image"));
+    action["Rotate Image"]=menu["General"]->addAction(Main::instance().translate("MainWindow", "Rotate Image"));
     action["Rotate Image"]->setIcon(QIcon("media/icons/126172-simple-black-square-icon-alphanumeric-bracket-curley.png"));
-    action["Remove Color"]=menu["General"]->addAction(Main::instance()->translate("MainWindow", "Remove Color"));
+    action["Remove Color"]=menu["General"]->addAction(Main::instance().translate("MainWindow", "Remove Color"));
     action["Remove Color"]->setIcon(QIcon("media/icons/126172-simple-black-square-icon-alphanumeric-bracket-curley.png"));
     menu["General"]->setEnabled(false);
 
-    menu["Improvement"]=menuBar()->addMenu(Main::instance()->translate("MainWindow", "Improvement"));
-    action["Brightness"]=menu["Improvement"]->addAction(Main::instance()->translate("MainWindow", "Brightness"));
+    menu["Improvement"]=menuBar()->addMenu(Main::instance().translate("MainWindow", "Improvement"));
+    action["Brightness"]=menu["Improvement"]->addAction(Main::instance().translate("MainWindow", "Brightness"));
     action["Brightness"]->setIcon(QIcon("media/icons/126172-simple-black-square-icon-alphanumeric-bracket-curley.png"));
-    action["Auto Brightness"]=menu["Improvement"]->addAction(Main::instance()->translate("MainWindow", "Auto Brightness"));
+    action["Auto Brightness"]=menu["Improvement"]->addAction(Main::instance().translate("MainWindow", "Auto Brightness"));
     action["Auto Brightness"]->setIcon(QIcon("media/icons/126172-simple-black-square-icon-alphanumeric-bracket-curley.png"));
-    action["Gray Value Splay"]=menu["Improvement"]->addAction(Main::instance()->translate("MainWindow", "Gray Value Splay"));
+    action["Gray Value Splay"]=menu["Improvement"]->addAction(Main::instance().translate("MainWindow", "Gray Value Splay"));
     action["Gray Value Splay"]->setIcon(QIcon("media/icons/126172-simple-black-square-icon-alphanumeric-bracket-curley.png"));
-    action["Fill Up Horizontal Gaps"]=menu["Improvement"]->addAction(Main::instance()->translate("MainWindow", "Fill Up Horizontal Gaps"));
+    action["Fill Up Horizontal Gaps"]=menu["Improvement"]->addAction(Main::instance().translate("MainWindow", "Fill Up Horizontal Gaps"));
     action["Fill Up Horizontal Gaps"]->setIcon(QIcon("media/icons/126172-simple-black-square-icon-alphanumeric-bracket-curley.png"));
-    action["Fill Up Vertical Gaps"]=menu["Improvement"]->addAction(Main::instance()->translate("MainWindow", "Fill Up Vertical Gaps"));
+    action["Fill Up Vertical Gaps"]=menu["Improvement"]->addAction(Main::instance().translate("MainWindow", "Fill Up Vertical Gaps"));
     action["Fill Up Vertical Gaps"]->setIcon(QIcon("media/icons/126172-simple-black-square-icon-alphanumeric-bracket-curley.png"));
     menu["Improvement"]->addSeparator();
-    action["Lively"]=menu["Improvement"]->addAction(Main::instance()->translate("MainWindow", "Lively"));
+    action["Lively"]=menu["Improvement"]->addAction(Main::instance().translate("MainWindow", "Lively"));
     action["Lively"]->setIcon(QIcon("media/icons/126172-simple-black-square-icon-alphanumeric-bracket-curley.png"));
     menu["Improvement"]->setEnabled(false);
 
-    menu["Arithmetic"]=menuBar()->addMenu(Main::instance()->translate("MainWindow", "Arithmetic"));
-    action["Add Image"]=menu["Arithmetic"]->addAction(Main::instance()->translate("MainWindow", "Add Image"));
+    menu["Arithmetic"]=menuBar()->addMenu(Main::instance().translate("MainWindow", "Arithmetic"));
+    action["Add Image"]=menu["Arithmetic"]->addAction(Main::instance().translate("MainWindow", "Add Image"));
     action["Add Image"]->setIcon(QIcon("media/icons/126172-simple-black-square-icon-alphanumeric-bracket-curley.png"));
-    action["Subtract Image"]=menu["Arithmetic"]->addAction(Main::instance()->translate("MainWindow", "Subtract Image"));
+    action["Subtract Image"]=menu["Arithmetic"]->addAction(Main::instance().translate("MainWindow", "Subtract Image"));
     action["Subtract Image"]->setIcon(QIcon("media/icons/126172-simple-black-square-icon-alphanumeric-bracket-curley.png"));
-    action["Multiplicate Image"]=menu["Arithmetic"]->addAction(Main::instance()->translate("MainWindow", "Multiplicate Image"));
+    action["Multiplicate Image"]=menu["Arithmetic"]->addAction(Main::instance().translate("MainWindow", "Multiplicate Image"));
     action["Multiplicate Image"]->setIcon(QIcon("media/icons/126172-simple-black-square-icon-alphanumeric-bracket-curley.png"));
-    action["Divide Image"]=menu["Arithmetic"]->addAction(Main::instance()->translate("MainWindow", "Divide Image"));
+    action["Divide Image"]=menu["Arithmetic"]->addAction(Main::instance().translate("MainWindow", "Divide Image"));
     action["Divide Image"]->setIcon(QIcon("media/icons/126172-simple-black-square-icon-alphanumeric-bracket-curley.png"));
     menu["Arithmetic"]->setEnabled(false);
 
-    menu["Find Edges"]=menuBar()->addMenu(Main::instance()->translate("MainWindow", "Find Edges"));
-    action["Symmetric Differentiation Filter"]=menu["Find Edges"]->addAction(Main::instance()->translate("MainWindow", "Symmetric Differentiation"));
+    menu["Find Edges"]=menuBar()->addMenu(Main::instance().translate("MainWindow", "Find Edges"));
+    action["Symmetric Differentiation Filter"]=menu["Find Edges"]->addAction(Main::instance().translate("MainWindow", "Symmetric Differentiation"));
     action["Symmetric Differentiation Filter"]->setIcon(QIcon("media/icons/126172-simple-black-square-icon-alphanumeric-bracket-curley.png"));
-    action["Prewitt Filter"]=menu["Find Edges"]->addAction(Main::instance()->translate("MainWindow", "Prewitt"));
+    action["Prewitt Filter"]=menu["Find Edges"]->addAction(Main::instance().translate("MainWindow", "Prewitt"));
     action["Prewitt Filter"]->setIcon(QIcon("media/icons/126172-simple-black-square-icon-alphanumeric-bracket-curley.png"));
-    action["Sobel Filter"]=menu["Find Edges"]->addAction(Main::instance()->translate("MainWindow", "Sobel"));
+    action["Sobel Filter"]=menu["Find Edges"]->addAction(Main::instance().translate("MainWindow", "Sobel"));
     action["Sobel Filter"]->setIcon(QIcon("media/icons/126172-simple-black-square-icon-alphanumeric-bracket-curley.png"));
-    action["LaPlace Filter"]=menu["Find Edges"]->addAction(Main::instance()->translate("MainWindow", "LaPlace"));
+    action["LaPlace Filter"]=menu["Find Edges"]->addAction(Main::instance().translate("MainWindow", "LaPlace"));
     action["LaPlace Filter"]->setIcon(QIcon("media/icons/126172-simple-black-square-icon-alphanumeric-bracket-curley.png"));
-    action["Kirsch Compass Filter"]=menu["Find Edges"]->addAction(Main::instance()->translate("MainWindow", "Kirsch (Compass)"));
+    action["Kirsch Compass Filter"]=menu["Find Edges"]->addAction(Main::instance().translate("MainWindow", "Kirsch (Compass)"));
     action["Kirsch Compass Filter"]->setIcon(QIcon("media/icons/126172-simple-black-square-icon-alphanumeric-bracket-curley.png"));
     menu["Find Edges"]->addSeparator();
-    action["Make Absolute"]=menu["Find Edges"]->addAction(Main::instance()->translate("MainWindow", "Make Absolute"));
+    action["Make Absolute"]=menu["Find Edges"]->addAction(Main::instance().translate("MainWindow", "Make Absolute"));
     action["Make Absolute"]->setIcon(QIcon("media/icons/126172-simple-black-square-icon-alphanumeric-bracket-curley.png"));
-    action["Detect Zero Crossings"]=menu["Find Edges"]->addAction(Main::instance()->translate("MainWindow", "Detect Zero Crossings"));
+    action["Detect Zero Crossings"]=menu["Find Edges"]->addAction(Main::instance().translate("MainWindow", "Detect Zero Crossings"));
     action["Detect Zero Crossings"]->setIcon(QIcon("media/icons/126172-simple-black-square-icon-alphanumeric-bracket-curley.png"));
     menu["Find Edges"]->setEnabled(false);
 
-    menu["Convert"]=menuBar()->addMenu(Main::instance()->translate("MainWindow", "Convert"));
-    action["to Grayscale"]=menu["Convert"]->addAction(Main::instance()->translate("MainWindow", "to Grayscale"));
+    menu["Convert"]=menuBar()->addMenu(Main::instance().translate("MainWindow", "Convert"));
+    action["to Grayscale"]=menu["Convert"]->addAction(Main::instance().translate("MainWindow", "to Grayscale"));
     action["to Grayscale"]->setIcon(QIcon("media/icons/126172-simple-black-square-icon-alphanumeric-bracket-curley.png"));
-    action["to Reduced Colors"]=menu["Convert"]->addAction(Main::instance()->translate("MainWindow", "to Reduced Colors"));
+    action["to Reduced Colors"]=menu["Convert"]->addAction(Main::instance().translate("MainWindow", "to Reduced Colors"));
     action["to Reduced Colors"]->setIcon(QIcon("media/icons/126172-simple-black-square-icon-alphanumeric-bracket-curley.png"));
-    action["to Vector Image"]=menu["Convert"]->addAction(Main::instance()->translate("MainWindow", "to Vector Image"));
+    action["to Vector Image"]=menu["Convert"]->addAction(Main::instance().translate("MainWindow", "to Vector Image"));
     action["to Vector Image"]->setIcon(QIcon("media/icons/126172-simple-black-square-icon-alphanumeric-bracket-curley.png"));
     menu["Convert"]->setEnabled(false);
 
-    menu["Language"]=menuBar()->addMenu(Main::instance()->translate("MainWindow", "Language"));
-    action["English"]=menu["Language"]->addAction(Main::instance()->translate("MainWindow", "English"));
+    menu["Language"]=menuBar()->addMenu(Main::instance().translate("MainWindow", "Language"));
+    action["English"]=menu["Language"]->addAction(Main::instance().translate("MainWindow", "English"));
     action["English"]->setIcon(QIcon("media/icons/126304-simple-black-square-icon-alphanumeric-quote-open2.png"));
-    action["French"]=menu["Language"]->addAction(Main::instance()->translate("MainWindow", "French"));
+    action["French"]=menu["Language"]->addAction(Main::instance().translate("MainWindow", "French"));
     action["French"]->setIcon(QIcon("media/icons/126304-simple-black-square-icon-alphanumeric-quote-open2.png"));
-    action["German"]=menu["Language"]->addAction(Main::instance()->translate("MainWindow", "German"));
+    action["German"]=menu["Language"]->addAction(Main::instance().translate("MainWindow", "German"));
     action["German"]->setIcon(QIcon("media/icons/126304-simple-black-square-icon-alphanumeric-quote-open2.png"));
-    action["Polish"]=menu["Language"]->addAction(Main::instance()->translate("MainWindow", "Polish"));
+    action["Polish"]=menu["Language"]->addAction(Main::instance().translate("MainWindow", "Polish"));
     action["Polish"]->setIcon(QIcon("media/icons/126304-simple-black-square-icon-alphanumeric-quote-open2.png"));
-    action["Turkish"]=menu["Language"]->addAction(Main::instance()->translate("MainWindow", "Turkish"));
+    action["Turkish"]=menu["Language"]->addAction(Main::instance().translate("MainWindow", "Turkish"));
     action["Turkish"]->setIcon(QIcon("media/icons/126304-simple-black-square-icon-alphanumeric-quote-open2.png"));
     menu["Language"]->addSeparator();
-    action["Contribute Language"]=menu["Language"]->addAction(Main::instance()->translate("MainWindow", "Contribute"));
+    action["Contribute Language"]=menu["Language"]->addAction(Main::instance().translate("MainWindow", "Contribute"));
     action["Contribute Language"]->setIcon(QIcon("media/icons/126293-simple-black-square-icon-alphanumeric-plus-sign-simple.png"));
 
-    menu["Info"]=menuBar()->addMenu(Main::instance()->translate("MainWindow", "Info"));
-    action["About"]=menu["Info"]->addAction(Main::instance()->translate("MainWindow", "About"));
+    menu["Info"]=menuBar()->addMenu(Main::instance().translate("MainWindow", "Info"));
+    action["About"]=menu["Info"]->addAction(Main::instance().translate("MainWindow", "About"));
     action["About"]->setIcon(QIcon("media/icons/126198-simple-black-square-icon-alphanumeric-information2-ps.png"));
 
     console=new Console(this);
@@ -1100,12 +1100,12 @@ void MainWindow::construct()
     connect(action["Polish"], SIGNAL(triggered()), this, SLOT(setLanguageToPolish()));
     connect(action["Turkish"], SIGNAL(triggered()), this, SLOT(setLanguageToTurkish()));
     connect(action["Contribute Language"], SIGNAL(triggered()), this, SLOT(contributeLanguageInformation()));
-    connect(Main::instance(), SIGNAL(languageChanged()), this, SLOT(changeLanguage()));
+    connect(&Main::instance(), SIGNAL(languageChanged()), this, SLOT(changeLanguage()));
     connect(ImageProcessor::instance(), SIGNAL(status(QString)), console, SLOT(print(QString)));
     connect(script->scriptingInterface(), SIGNAL(output(QString)), console, SLOT(print(QString)));
 
     QList<QByteArray> supportedFormats=QImageReader::supportedImageFormats();
-    QString supportedFormatsString=Main::instance()->translate("MainWindow", "Supported formats on this system: ");
+    QString supportedFormatsString=Main::instance().translate("MainWindow", "Supported formats on this system: ");
     foreach(QByteArray byteArray, supportedFormats)
         supportedFormatsString+=QString(" ")+byteArray;
     console->print(supportedFormatsString);

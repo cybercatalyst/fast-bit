@@ -27,14 +27,16 @@
 #include "headerFiles/MainWindow.h"
 #include "headerFiles/renderers/HistogramOpenGLRenderer.h"
 
+Main Main::singleton;
+
 int main(int argc, char *argv[])
 {
-    Main::instance()->initialize(argc, argv);
+    Main::instance().initialize(argc, argv);
 
     QSplashScreen splashScreen(QPixmap("media/fastBitLogo.png"));
 
     MainWindow mainWindow;
-    mainWindow.restoreState(Main::instance()->settings()->value("mainWindowState").toByteArray());
+    mainWindow.restoreState(Main::instance().settings()->value("mainWindowState").toByteArray());
     mainWindow.show();
 
     // Show splash screen and wait 1000 ms. qWait does not block the thread.
@@ -42,18 +44,17 @@ int main(int argc, char *argv[])
     QTest::qWait(1000);
     splashScreen.close();
 
-    Main::instance()->application()->exec();
+    Main::instance().application()->exec();
 
-    Main::instance()->settings()->setValue("mainWindowState", mainWindow.saveState());
+    Main::instance().settings()->setValue("mainWindowState", mainWindow.saveState());
     mainWindow.saveWindowStates();
-    Main::instance()->settings()->sync();
+    Main::instance().settings()->sync();
     return 0;
 }
 
-Main* Main::instance()
+Main& Main::instance()
 {
-    static Main singleton;
-    return &singleton;
+    return Main::singleton;
 }
 
 void Main::initialize(int argc, char **argv)

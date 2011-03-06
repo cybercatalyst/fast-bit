@@ -122,10 +122,10 @@ double ScriptEngine::tan(double x)
 
 void ScriptEngine::evaluateScript(QString script)
 {
-    emit output(Main::instance()->translate("ScriptEngine", "Precompiling script.."));
+    emit output(Main::instance().translate("ScriptEngine", "Precompiling script.."));
     QScriptProgram program(script);
     QScriptValue result = evaluate(program);
-    emit output(Main::instance()->translate("ScriptEngine", "<b>Script finished and returned %1.</b>").arg(result.toString()));
+    emit output(Main::instance().translate("ScriptEngine", "<b>Script finished and returned %1.</b>").arg(result.toString()));
 }
 
 void ScriptEngine::handleException(const QScriptValue& exception)
