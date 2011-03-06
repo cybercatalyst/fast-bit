@@ -855,7 +855,6 @@ void MainWindow::changeLanguage()
     action["Save"]->setText(Main::instance().translate("MainWindow", "Save"));
     action["Save As"]->setText(Main::instance().translate("MainWindow", "Save As"));
     action["Save History"]->setText(Main::instance().translate("MainWindow", "Save History"));
-    action["Plugin Manager"]->setText(Main::instance().translate("MainWindow", "Plugin Manager"));
 
     menu["History"]->setTitle(Main::instance().translate("MainWindow", "History"));
     action["Push"]->setText(Main::instance().translate("MainWindow", "Push"));
@@ -900,6 +899,9 @@ void MainWindow::changeLanguage()
     action["to Reduced Colors"]->setText(Main::instance().translate("MainWindow", "to Reduced Colors"));
     action["to Vector Image"]->setText(Main::instance().translate("MainWindow", "to Vector Image"));
 
+    menu["Plugins"]->setTitle(Main::instance().translate("MainWindow", "Plugins"));
+    action["Manage Plugins"]->setText(Main::instance().translate("MainWindow", "Manage Plugins"));
+
     menu["Info"]->setTitle(Main::instance().translate("MainWindow", "Info"));
     action["About"]->setText(Main::instance().translate("MainWindow", "About"));
 
@@ -933,7 +935,6 @@ void MainWindow::construct()
     action["Save"]=menu["File"]->addAction(Main::instance().translate("MainWindow", "Save"));
     action["Save As"]=menu["File"]->addAction(Main::instance().translate("MainWindow", "Save As"));
     action["Save History"]=menu["File"]->addAction(Main::instance().translate("MainWindow", "Save History"));
-    action["Plugin Manager"]=menu["File"]->addAction(Main::instance().translate("MainWindow", "Plugin Manager"));
 
     menu["History"]=menuBar()->addMenu(Main::instance().translate("MainWindow", "History"));
     action["Push"]=menu["History"]->addAction(Main::instance().translate("MainWindow", "Push"));
@@ -1019,6 +1020,10 @@ void MainWindow::construct()
     action["to Vector Image"]->setIcon(QIcon("media/icons/126172-simple-black-square-icon-alphanumeric-bracket-curley.png"));
     menu["Convert"]->setEnabled(false);
 
+    menu["Plugins"]=menuBar()->addMenu(Main::instance().translate("MainWindow", "Plugins"));
+    action["Manage Plugins"]=menu["Plugins"]->addAction(Main::instance().translate("MainWindow", "Manage Plugins"));
+    menu["Plugins"]->addSeparator();
+
     menu["Language"]=menuBar()->addMenu(Main::instance().translate("MainWindow", "Language"));
     action["English"]=menu["Language"]->addAction(Main::instance().translate("MainWindow", "English"));
     action["English"]->setIcon(QIcon("media/icons/126304-simple-black-square-icon-alphanumeric-quote-open2.png"));
@@ -1052,7 +1057,6 @@ void MainWindow::construct()
     connect(action["Save"], SIGNAL(triggered()), this, SLOT(saveFileDialog()));
     connect(action["Save As"], SIGNAL(triggered()), this, SLOT(saveAsFileDialog()));
     connect(action["Save History"], SIGNAL(triggered()), this, SLOT(saveHistoryDialog()));
-    connect(action["Plugin Manager"], SIGNAL(triggered()), this, SLOT(showPluginManager()));
 
     connect(action["Push"], SIGNAL(triggered()), this, SLOT(pushHistory()));
     connect(action["Pop"], SIGNAL(triggered()), this, SLOT(popHistory()));
@@ -1091,6 +1095,8 @@ void MainWindow::construct()
     connect(action["to Grayscale"], SIGNAL(triggered()), this, SLOT(convertToGrayscale()));
     connect(action["to Vector Image"], SIGNAL(triggered()), this, SLOT(convertToVectorImage()));
     connect(action["to Reduced Colors"], SIGNAL(triggered()), this, SLOT(convertToReducedColors()));
+
+    connect(action["Manage Plugins"], SIGNAL(triggered()), this, SLOT(showPluginManager()));
 
     connect(action["About"], SIGNAL(triggered()), this, SLOT(infoAbout()));
 

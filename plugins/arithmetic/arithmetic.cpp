@@ -23,5 +23,7 @@ QString PluginImpl::identifier()
 
 QList<QString> PluginImpl::content()
 {
-    return QList<QString>();
+    QList<QString> contentList;
+    contentList << "Add" << "Subtract" << "Multiplicate" << "Divide";
+    return contentList;
 }

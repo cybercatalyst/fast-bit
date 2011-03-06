@@ -16,4 +16,4 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "headerFiles/Plugin.h"
+#include "headerFiles/PluginProxy.h"

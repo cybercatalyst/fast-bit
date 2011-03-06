@@ -16,4 +16,20 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#ifndef PLUGIN_PROXY_H
+#define PLUGIN_PROXY_H
+
 #include "headerFiles/Plugin.h"
+
+class PluginProxy
+{
+public:
+    PluginProxy(Plugin* plugin) : m_plugin(plugin) {}
+    ~PluginProxy() {}
+
+private:
+    PluginProxy() {}
+    Plugin* m_plugin;
+};
+
+#endif // PLUGIN_PROXY_H
