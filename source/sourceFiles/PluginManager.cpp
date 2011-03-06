@@ -52,12 +52,20 @@ void PluginManager::loadPlugin(QString fileName)
             PluginProxy pluginProxy(exportPlugin());
 
             if(pluginProxy.isValid())
-                m_plugins.append(pluginProxy);
+            {
+                bool alreadyLoaded = false;
+                foreach(PluginProxy loadedPlugin, m_plugins)
+                    if(loadedPlugin.identifier() == pluginProxy.identifier())
+                        alreadyLoaded = true;
+
+                if(!alreadyLoaded)
+                    m_plugins.append(pluginProxy);
+            }
         }
         else
         {
             qDebug("Plugin is not valid.");
-            // This is no a valid plugin.
+            // This is not a valid plugin.
         }
     }
 
