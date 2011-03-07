@@ -255,7 +255,7 @@ private:
     ImageProcessor();
     ~ImageProcessor();
 
-    QThread *processingThread;
+    static ImageProcessor singleton;
 };
 
 #endif // IMAGE_PROCESSOR_H

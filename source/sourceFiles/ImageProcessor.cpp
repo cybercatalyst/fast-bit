@@ -22,10 +22,12 @@
 #include <QStack>
 #include <QVector>
 
+
+ImageProcessor ImageProcessor::singleton;
+
 ImageProcessor *ImageProcessor::instance()
 {
-    static ImageProcessor imageProcessor;
-    return &imageProcessor;
+    return &ImageProcessor::singleton;
 }
 
 void ImageProcessor::normalizedRedValueDistribution(QImage image, QObject* renderer)
@@ -1341,13 +1343,11 @@ void ImageProcessor::clipColor(int &color)
 ImageProcessor::ImageProcessor()
     : QObject()
 {
-    //processingThread = new QThread();
-    //processingThread->start();
-    //moveToThread(processingThread);
+    QThread* processingThread = new QThread();
+    processingThread->start();
+    moveToThread(processingThread);
 }
 
 ImageProcessor::~ImageProcessor()
 {
-    //processingThread->quit();
-    //delete processingThread;
 }

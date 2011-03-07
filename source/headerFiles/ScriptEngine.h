@@ -49,9 +49,6 @@ private slots:
 
 signals:
     void output(QString message);
-
-private:
-    QThread* workerThread;
 };
 
 #endif // SCRIPT_ENGINE_H
