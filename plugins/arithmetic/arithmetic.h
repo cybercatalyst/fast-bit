@@ -2,7 +2,6 @@
 #define ARITHMETIC_H
 
 #include "headerFiles/PluginInterface.h"
-#include <QObject>
 #include <QtPlugin>
 
 class PluginImpl : public PluginInterface

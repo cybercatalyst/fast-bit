@@ -39,9 +39,9 @@ Q_SCRIPT_DECLARE_QMETAOBJECT(ScriptFile, QObject*)
 ScriptEngine::ScriptEngine()
     : QScriptEngine()
 {
-    workerThread = new QThread();
-    workerThread->start();
-    moveToThread(workerThread);
+    //workerThread = new QThread();
+    //workerThread->start();
+    //moveToThread(workerThread);
 
     setGlobalObject(newQObject(this));
 

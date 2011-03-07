@@ -1341,13 +1341,13 @@ void ImageProcessor::clipColor(int &color)
 ImageProcessor::ImageProcessor()
     : QObject()
 {
-    processingThread = new QThread();
-    processingThread->start();
-    moveToThread(processingThread);
+    //processingThread = new QThread();
+    //processingThread->start();
+    //moveToThread(processingThread);
 }
 
 ImageProcessor::~ImageProcessor()
 {
-    processingThread->quit();
-    delete processingThread;
+    //processingThread->quit();
+    //delete processingThread;
 }

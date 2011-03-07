@@ -4,8 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       -= gui
-
+QT += core
 INCLUDEPATH += ../../source/
 
 CONFIG += plugin

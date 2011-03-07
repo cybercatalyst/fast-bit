@@ -70,11 +70,6 @@ private:
       */
     QTabWidget *centralWidget;
 
-    /**
-      * Thread in which the graph window is running in.
-      */
-    QThread *ownThread;
-
     HistogramOpenGLRenderer* renderers[6];
 };
 #endif // GRAPH_H
