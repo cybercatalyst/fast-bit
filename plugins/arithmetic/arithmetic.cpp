@@ -1,19 +1,8 @@
 #include "arithmetic.h"
 
-Plugin* exportPlugin()
+PluginImpl::PluginImpl(QObject* parent)
+    : PluginInterface(parent)
 {
-    Plugin* plugin = new PluginImpl();
-    return plugin;
-}
-
-PluginImpl::PluginImpl()
-{
-
-}
-
-PluginImpl::~PluginImpl()
-{
-
 }
 
 QString PluginImpl::identifier()
@@ -27,3 +16,5 @@ QList<QString> PluginImpl::content()
     contentList << "Add" << "Subtract" << "Multiplicate" << "Divide";
     return contentList;
 }
+
+Q_EXPORT_PLUGIN2(arithmetic, PluginImpl);

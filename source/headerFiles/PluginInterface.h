@@ -21,17 +21,21 @@
 
 #include <QString>
 #include <QList>
+#include <QObject>
 
 class PluginInterface
+    : public QObject
 {
+    Q_OBJECT
 public:
-    PluginInterface(){}
-    ~PluginInterface(){}
+    PluginInterface(QObject* parent) : QObject(parent){}
 
     virtual QString identifier() = 0;
     virtual QList<QString> content() = 0;
 private:
 
 };
+
+Q_DECLARE_INTERFACE(PluginInterface, "de.fast-bit.PluginInterface")
 
 #endif // PLUGIN_INTERFACE_H

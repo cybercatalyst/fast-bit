@@ -1,31 +1,19 @@
 #ifndef ARITHMETIC_H
 #define ARITHMETIC_H
 
-#include "headerFiles/Plugin.h"
+#include "headerFiles/PluginInterface.h"
 #include <QObject>
+#include <QtPlugin>
 
-extern "C"
-{
-    Plugin* exportPlugin();
-}
-
-class ObjectInterfaceProxy : public QObject
+class PluginImpl : public PluginInterface
 {
     Q_OBJECT
+    Q_INTERFACES(PluginInterface)
 public:
-    ObjectInterfaceProxy() : QObject() {}
-    ~ObjectInterfaceProxy() {}
-};
-
-class PluginImpl : public Plugin
-{
-public:
-    PluginImpl();
-    ~PluginImpl();
+    PluginImpl(QObject* parent = 0);
 
     QString identifier();
     QList<QString> content();
-    ObjectInterfaceProxy objectInterfaceProxy;
 };
 
 #endif // ARITHMETIC_H

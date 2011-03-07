@@ -29,10 +29,11 @@ class PluginManager : public QObject
 public:
     static PluginManager& instance();
 
-    void loadPlugin(QString fileName);
+    bool loadPlugin(QString fileName);
     QList<QString> availablePlugins();
     QList<QString> availableFunctions(QString plugin);
 
+    QString errorString();
 signals:
     void configurationChanged();
 
@@ -40,6 +41,7 @@ private:
     PluginManager();
     ~PluginManager();
 
+    QString m_errorString;
     QList<PluginProxy> m_plugins;
     static PluginManager singleton;
 };

@@ -21,6 +21,7 @@
 #include "headerFiles/PluginManager.h"
 #include <QFileDialog>
 #include <QApplication>
+#include <QMessageBox>
 
 #include <list>
 #include <string>
@@ -50,7 +51,9 @@ void PluginManagerDialog::loadPlugin()
     QFileDialog::getOpenFileName(this,
                                  "Load Plugin",
                                  QApplication::applicationDirPath() + "/plugins");
-    PluginManager::instance().loadPlugin(selectedFile);
+    if(!PluginManager::instance().loadPlugin(selectedFile))
+        QMessageBox::information(this, "Loading Plugin Failed", PluginManager::instance().errorString());
+
 }
 
 void PluginManagerDialog::updateConfiguration()

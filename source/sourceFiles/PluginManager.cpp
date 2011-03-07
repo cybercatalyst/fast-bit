@@ -19,6 +19,7 @@
 #include "headerFiles/PluginManager.h"
 #include <QLibrary>
 #include <string>
+#include <QPluginLoader>
 
 using namespace std;
 PluginManager PluginManager::singleton;
@@ -39,37 +40,38 @@ PluginManager& PluginManager::instance()
     return PluginManager::singleton;
 }
 
-void PluginManager::loadPlugin(QString fileName)
+QString PluginManager::errorString()
+{
+    return m_errorString;
+}
+
+bool PluginManager::loadPlugin(QString fileName)
 {
     if(fileName.length())
     {
-        QLibrary library(fileName);
-        typedef PluginInterface* (*ExportPluginFunction)();
-        ExportPluginFunction exportPlugin = (ExportPluginFunction) library.resolve("exportPlugin");
-        if(exportPlugin)
-        {
-            qDebug("Plugin seems to be valid, querying for content.");
-            PluginProxy pluginProxy(exportPlugin());
+        QPluginLoader pluginLoader(fileName);
+        QObject* pluginObject = pluginLoader.instance();
+        PluginProxy pluginProxy(qobject_cast<PluginInterface*>(pluginObject));
 
-            if(pluginProxy.isValid())
-            {
-                bool alreadyLoaded = false;
-                foreach(PluginProxy loadedPlugin, m_plugins)
-                    if(loadedPlugin.identifier() == pluginProxy.identifier())
-                        alreadyLoaded = true;
-
-                if(!alreadyLoaded)
-                    m_plugins.append(pluginProxy);
-            }
-        }
-        else
+        if(pluginProxy.isValid())
         {
-            qDebug("Plugin is not valid.");
-            // This is not a valid plugin.
+            bool alreadyLoaded = false;
+            foreach(PluginProxy loadedPlugin, m_plugins)
+                if(loadedPlugin.identifier() == pluginProxy.identifier())
+                    alreadyLoaded = true;
+
+            if(!alreadyLoaded)
+                m_plugins.append(pluginProxy);
+
+            emit configurationChanged();
+            return true;
         }
+
+        m_errorString = pluginLoader.errorString();
+        return false;
     }
-
-    emit configurationChanged();
+    m_errorString = "File was not found.";
+    return false;
 }
 
 QList<QString> PluginManager::availablePlugins()

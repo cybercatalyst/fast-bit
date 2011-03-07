@@ -8,6 +8,7 @@ QT       -= gui
 
 INCLUDEPATH += ../../source/
 
+CONFIG += plugin
 TARGET = arithmetic
 TEMPLATE = lib
 

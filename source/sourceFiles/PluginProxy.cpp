@@ -17,6 +17,7 @@
  */
 
 #include "headerFiles/PluginProxy.h"
+#include <QList>
 
 PluginProxy::PluginProxy(PluginInterface* plugin)
     : m_plugin(plugin),
