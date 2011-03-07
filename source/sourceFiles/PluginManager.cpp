@@ -44,7 +44,7 @@ void PluginManager::loadPlugin(QString fileName)
     if(fileName.length())
     {
         QLibrary library(fileName);
-        typedef Plugin* (*ExportPluginFunction)();
+        typedef PluginInterface* (*ExportPluginFunction)();
         ExportPluginFunction exportPlugin = (ExportPluginFunction) library.resolve("exportPlugin");
         if(exportPlugin)
         {

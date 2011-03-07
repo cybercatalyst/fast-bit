@@ -26,7 +26,7 @@ SOURCES += sourceFiles/ChainProcessor.cpp \
     sourceFiles/renderers/OpenGLRenderer.cpp \
     sourceFiles/PluginManagerDialog.cpp \
     sourceFiles/PluginManager.cpp \
-    sourceFiles/Plugin.cpp \
+    sourceFiles/PluginInterface.cpp \
     sourceFiles/PluginProxy.cpp
 
 HEADERS += headerFiles/ChainProcessor.h \
@@ -48,7 +48,7 @@ HEADERS += headerFiles/ChainProcessor.h \
     headerFiles/renderers/OpenGLRenderer.h \
     headerFiles/PluginManagerDialog.h \
     headerFiles/PluginManager.h \
-    headerFiles/Plugin.h \
+    headerFiles/PluginInterface.h \
     headerFiles/PluginProxy.h
 
 DESTDIR = ..

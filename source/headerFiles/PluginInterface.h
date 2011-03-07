@@ -16,4 +16,22 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "headerFiles/Plugin.h"
+#ifndef PLUGIN_INTERFACE_H
+#define PLUGIN_INTERFACE_H
+
+#include <QString>
+#include <QList>
+
+class PluginInterface
+{
+public:
+    PluginInterface(){}
+    ~PluginInterface(){}
+
+    virtual QString identifier() = 0;
+    virtual QList<QString> content() = 0;
+private:
+
+};
+
+#endif // PLUGIN_INTERFACE_H

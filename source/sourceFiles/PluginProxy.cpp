@@ -18,7 +18,7 @@
 
 #include "headerFiles/PluginProxy.h"
 
-PluginProxy::PluginProxy(Plugin* plugin)
+PluginProxy::PluginProxy(PluginInterface* plugin)
     : m_plugin(plugin),
       m_valid(false)
 {

@@ -19,12 +19,12 @@
 #ifndef PLUGIN_PROXY_H
 #define PLUGIN_PROXY_H
 
-#include "headerFiles/Plugin.h"
+#include "headerFiles/PluginInterface.h"
 
 class PluginProxy
 {
 public:
-    PluginProxy(Plugin* plugin);
+    PluginProxy(PluginInterface* plugin);
     ~PluginProxy() {}
 
     QString identifier() { return m_plugin->identifier(); }
@@ -32,7 +32,7 @@ public:
     bool isValid() { return m_valid; }
 private:
     PluginProxy() {}
-    Plugin* m_plugin;
+    PluginInterface* m_plugin;
     bool m_valid;
 };
 
