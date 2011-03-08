@@ -6,10 +6,11 @@
 
 QT += core
 INCLUDEPATH += ../../source/
+TEMPLATE = lib
 
 CONFIG += plugin
 TARGET = arithmetic
-TEMPLATE = lib
+
 
 SOURCES += arithmetic.cpp
 HEADERS += arithmetic.h
