@@ -51,6 +51,8 @@ void PluginManagerDialog::loadPlugin()
     QFileDialog::getOpenFileName(this,
                                  "Load Plugin",
                                  QApplication::applicationDirPath() + "/plugins");
+
+    if(!selectedFile.isEmpty())
     if(!PluginManager::instance().loadPlugin(selectedFile))
         QMessageBox::information(this, "Loading Plugin Failed", PluginManager::instance().errorString());
 
