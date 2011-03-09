@@ -16,6 +16,7 @@ SOURCES += sourceFiles/ChainProcessor.cpp \
     sourceFiles/ScriptingInterface.cpp \
     sourceFiles/SyntaxHighlighter.cpp \
     sourceFiles/dockWidgets/Console.cpp \
+    sourceFiles/dockWidgets/ConsoleInterface.cpp \
     sourceFiles/dockWidgets/Graph.cpp \
     sourceFiles/dockWidgets/Script.cpp \
     sourceFiles/scriptClasses/ScriptFile.cpp \
@@ -38,6 +39,7 @@ HEADERS += headerFiles/ChainProcessor.h \
     headerFiles/ScriptingInterface.h \
     headerFiles/SyntaxHighlighter.h \
     headerFiles/dockWidgets/Console.h \
+    headerFiles/dockWidgets/ConsoleInterface.h \
     headerFiles/dockWidgets/Graph.h \
     headerFiles/dockWidgets/Script.h \
     headerFiles/scriptClasses/ScriptFile.h \

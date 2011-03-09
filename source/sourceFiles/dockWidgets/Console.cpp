@@ -36,7 +36,7 @@ Console::~Console()
 
 void Console::print(QString message)
 {
-    centralWidget->append(message);
+    centralWidget->print(message);
 }
 
 void Console::changeLanguage()
@@ -46,13 +46,6 @@ void Console::changeLanguage()
 
 void Console::construct()
 {
-    centralWidget=new QTextEdit();
-    centralWidget->setReadOnly(true);
+    centralWidget = new ConsoleInterface();
     setWidget(centralWidget);
-    print("fast-bit image processing tool  Copyright (C) 2010 - 2011  Jacob Dawid");
-    print("This program comes with ABSOLUTELY NO WARRANTY. This is free software,"
-          " and you are welcome to redistribute it under certain conditions.");
-    print("fast-bit is still in alpha stage. If you encounter any problems,"
-          " please feel free to contact us at: jacob.dawid@googlemail.com");
-    print(Main::instance().translate("Console", "Ready."));
 }

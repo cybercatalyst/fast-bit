@@ -16,41 +16,29 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef CONSOLE_H
-#define CONSOLE_H
+#ifndef CONSOLE_INTERFACE_H
+#define CONSOLE_INTERFACE_H
 
-#include <QDockWidget>
-#include "headerFiles/dockWidgets/ConsoleInterface.h"
+#include <QString>
+#include <QWidget>
+#include <QTextEdit>
+#include <QLineEdit>
+#include <QVBoxLayout>
 
-class Console : public QDockWidget
+class ConsoleInterface : public QWidget
 {
     Q_OBJECT
-
 public:
-    Console(QWidget *parent = 0);
-    ~Console();
+    ConsoleInterface();
+    ~ConsoleInterface();
 
 public slots:
-    /**
-      * Prints a message in the console.
-      */
     void print(QString message);
 
-    /**
-      * Changes the language.
-      */
-    void changeLanguage();
-
 private:
-    /**
-      * Construct console window.
-      */
-    void construct();
-
-    /**
-      * Central widget.
-      */
-    ConsoleInterface* centralWidget;
+    QVBoxLayout* vBoxLayout;
+    QTextEdit* output;
+    QLineEdit* input;
 };
 
-#endif // CONSOLE_H
+#endif // CONSOLE_INTERFACE_H
