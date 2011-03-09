@@ -23,6 +23,7 @@
 #include <QTest>
 #include <QTranslator>
 #include <QDir>
+#include <QBitmap>
 #include "headerFiles/Main.h"
 #include "headerFiles/MainWindow.h"
 #include "headerFiles/renderers/HistogramOpenGLRenderer.h"
@@ -33,16 +34,18 @@ int main(int argc, char *argv[])
 {
     Main::instance().initialize(argc, argv);
 
-    QSplashScreen splashScreen(QPixmap("media/fastBitLogo.png"));
+    QPixmap pixmap("media/fastBitLogo.png");
+    QSplashScreen splashScreen(pixmap);
+    splashScreen.setMask(pixmap.mask());
 
     MainWindow mainWindow;
     mainWindow.restoreState(Main::instance().settings()->value("mainWindowState").toByteArray());
     mainWindow.show();
 
     // Show splash screen and wait 1000 ms. qWait does not block the thread.
-    //splashScreen.show();
-    QTest::qWait(1000);
-    //splashScreen.close();
+    splashScreen.show();
+    QTest::qWait(1500);
+    splashScreen.close();
 
     Main::instance().application()->exec();
 
