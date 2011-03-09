@@ -40,9 +40,9 @@ int main(int argc, char *argv[])
     mainWindow.show();
 
     // Show splash screen and wait 1000 ms. qWait does not block the thread.
-    splashScreen.show();
+    //splashScreen.show();
     QTest::qWait(1000);
-    splashScreen.close();
+    //splashScreen.close();
 
     Main::instance().application()->exec();
 
@@ -57,7 +57,7 @@ Main& Main::instance()
     return Main::singleton;
 }
 
-void Main::initialize(int argc, char **argv)
+void Main::initialize(int& argc, char **argv)
 {
     m.application = new QApplication(argc, argv);
     m.translator = new QTranslator();
