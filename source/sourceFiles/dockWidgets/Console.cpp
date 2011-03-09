@@ -27,6 +27,7 @@ Console::Console(QWidget *parent)
     construct();
 
     connect(&Main::instance(), SIGNAL(languageChanged()), this, SLOT(changeLanguage()));
+    connect(centralWidget, SIGNAL(command(QString)), this, SLOT(handleCommand(QString)));
     changeLanguage();
 }
 
@@ -42,6 +43,11 @@ void Console::print(QString message)
 void Console::changeLanguage()
 {
     setWindowTitle(Main::instance().translate("Console", "Console"));
+}
+
+void Console::handleCommand(QString _command)
+{
+    emit command(_command);
 }
 
 void Console::construct()

@@ -59,6 +59,12 @@ void ScriptingInterface::input(QString message)
     emit output(message);
 }
 
+void ScriptingInterface::handleCommand(QString command)
+{
+    QMetaObject::invokeMethod(m.scriptEngine, "evaluateScript", Qt::QueuedConnection,
+                              Q_ARG(QString, command));
+}
+
 void ScriptingInterface::openFile()
 {
     QString fileName =

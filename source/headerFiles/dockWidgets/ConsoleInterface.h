@@ -34,6 +34,10 @@ public:
 
 public slots:
     void print(QString message);
+    void handleUserInput();
+
+signals:
+    void command(QString command);
 
 private:
     QVBoxLayout* vBoxLayout;

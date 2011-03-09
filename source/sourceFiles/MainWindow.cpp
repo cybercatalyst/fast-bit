@@ -1109,6 +1109,7 @@ void MainWindow::construct()
     connect(&Main::instance(), SIGNAL(languageChanged()), this, SLOT(changeLanguage()));
     connect(ImageProcessor::instance(), SIGNAL(status(QString)), console, SLOT(print(QString)));
     connect(script->scriptingInterface(), SIGNAL(output(QString)), console, SLOT(print(QString)));
+    connect(console, SIGNAL(command(QString)), script->scriptingInterface(), SLOT(handleCommand(QString)));
 
     QList<QByteArray> supportedFormats=QImageReader::supportedImageFormats();
     QString supportedFormatsString=Main::instance().translate("MainWindow", "Supported formats on this system: ");

@@ -49,6 +49,11 @@ public slots:
       */
     void evaluateScript();
 
+    /**
+      * Handles a command.
+      */
+    void handleCommand(QString command);
+
 public slots:
     /**
       * Input for messages that should be forwarded.

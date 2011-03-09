@@ -41,6 +41,14 @@ public slots:
       */
     void changeLanguage();
 
+    /**
+      * Handles a command.
+      */
+    void handleCommand(QString command);
+
+signals:
+    void command(QString command);
+
 private:
     /**
       * Construct console window.

@@ -31,6 +31,8 @@ ConsoleInterface::ConsoleInterface()
     vBoxLayout->addWidget(input);
     this->setLayout(vBoxLayout);
 
+    connect(input, SIGNAL(returnPressed()), this, SLOT(handleUserInput()));
+
     print("fast-bit image processing tool  Copyright (C) 2010 - 2011  Jacob Dawid");
     print("This program comes with ABSOLUTELY NO WARRANTY. This is free software,"
           " and you are welcome to redistribute it under certain conditions.");
@@ -47,4 +49,10 @@ ConsoleInterface::~ConsoleInterface()
 void ConsoleInterface::print(QString message)
 {
     output->append(message);
+}
+
+void ConsoleInterface::handleUserInput()
+{
+    emit command(input->text());
+    input->setText("");
 }
