@@ -3,7 +3,7 @@ QT += core \
     opengl \
     testlib \
     script
-TARGET = fastBit
+TARGET = fastbit
 TEMPLATE = app
 MOC_DIR = temporaryFiles
 OBJECTS_DIR = temporaryFiles
