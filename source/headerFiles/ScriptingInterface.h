@@ -86,19 +86,9 @@ private:
     struct
     {
         QToolBar *controlBar;
-        QPushButton *runScript;
+        QPushButton *runScript, *openScript, *saveScript;
         ScriptEdit *scriptEdit;
         ScriptEngine *scriptEngine;
-
-        /**
-          * QString to QMenu*-map for main window.
-          */
-        QMap<QString, QMenu*> menu;
-
-        /**
-          * QString to QAction*-map for main window.
-          */
-        QMap<QString, QAction*> action;
     } m;
 };
 

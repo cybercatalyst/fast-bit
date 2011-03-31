@@ -31,8 +31,8 @@ ScriptingInterface::ScriptingInterface(QWidget *parent)
     connect(&Main::instance(), SIGNAL(languageChanged()), this, SLOT(changeLanguage()));
     connect(m.scriptEngine, SIGNAL(output(QString)), this, SLOT(input(QString)));
     connect(m.runScript, SIGNAL(clicked()), this, SLOT(evaluateScript()));
-    connect(m.action["Open"], SIGNAL(triggered()), this, SLOT(openFile()));
-    connect(m.action["Save"], SIGNAL(triggered()), this, SLOT(saveFile()));
+    connect(m.openScript, SIGNAL(clicked()), this, SLOT(openFile()));
+    connect(m.saveScript, SIGNAL(clicked()), this, SLOT(saveFile()));
 }
 
 ScriptingInterface::~ScriptingInterface()
@@ -41,10 +41,9 @@ ScriptingInterface::~ScriptingInterface()
 
 void ScriptingInterface::changeLanguage()
 {
-    m.menu["File"]->setTitle(Main::instance().translate("ScriptingInterface", "File"));
     m.runScript->setText(Main::instance().translate("ScriptingInterface", "Run"));
-    m.action["Open"]->setText(Main::instance().translate("ScriptingInterface", "Open"));
-    m.action["Save"]->setText(Main::instance().translate("ScriptingInterface", "Save"));
+    m.openScript->setText(Main::instance().translate("ScriptingInterface", "Open"));
+    m.saveScript->setText(Main::instance().translate("ScriptingInterface", "Save"));
 }
 
 void ScriptingInterface::evaluateScript()
@@ -101,14 +100,14 @@ void ScriptingInterface::saveFile()
 
 void ScriptingInterface::construct()
 {
-    m.menu["File"] = menuBar()->addMenu(Main::instance().translate("ScriptingInterface", "File"));
-    m.action["Open"] = m.menu["File"]->addAction(Main::instance().translate("ScriptingInterface", "Open"));
-    m.action["Save"] = m.menu["File"]->addAction(Main::instance().translate("ScriptingInterface", "Save"));
-
     m.controlBar = new QToolBar(Main::instance().translate("ScriptingInterface", "Control"), this);
     m.runScript = new QPushButton(Main::instance().translate("ScriptingInterface", "Run"), m.controlBar);
-    m.controlBar->addWidget(m.runScript);
+    m.openScript = new QPushButton(Main::instance().translate("ScriptingInterface", "Open"), m.controlBar);
+    m.saveScript = new QPushButton(Main::instance().translate("ScriptingInterface", "Save"), m.controlBar);
 
+    m.controlBar->addWidget(m.openScript);
+    m.controlBar->addWidget(m.saveScript);
+    m.controlBar->addWidget(m.runScript);
     m.controlBar->setObjectName("controlBar");
     addToolBar(m.controlBar);
 
