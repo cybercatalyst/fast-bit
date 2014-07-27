@@ -19,7 +19,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QtGui/QMainWindow>
+#include <QMainWindow>
 #include <QMenuBar>
 #include <QMenu>
 #include <QAction>
@@ -34,15 +34,15 @@
 #include <QHash>
 #include <QMetaObject>
 
-#include "headerFiles/Main.h"
-#include "headerFiles/dockWidgets/Console.h"
-#include "headerFiles/dockWidgets/Graph.h"
-#include "headerFiles/dockWidgets/Script.h"
-#include "headerFiles/renderers/HistogramOpenGLRenderer.h"
-#include "headerFiles/renderers/ImageOpenGLRenderer.h"
-#include "headerFiles/ImageProcessor.h"
-#include "headerFiles/renderers/OpenGLRenderer.h"
-#include "headerFiles/PluginManager.h"
+#include "Main.h"
+#include "Console.h"
+#include "Graph.h"
+#include "Script.h"
+#include "HistogramOpenGLRenderer.h"
+#include "ImageOpenGLRenderer.h"
+#include "ImageProcessor.h"
+#include "OpenGLRenderer.h"
+#include "PluginManager.h"
 
 /**
   * \class MainWindow

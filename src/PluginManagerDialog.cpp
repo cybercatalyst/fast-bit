@@ -16,9 +16,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "headerFiles/PluginManagerDialog.h"
+#include "PluginManagerDialog.h"
 #include "ui_PluginManagerDialog.h"
-#include "headerFiles/PluginManager.h"
+#include "PluginManager.h"
 #include <QFileDialog>
 #include <QApplication>
 #include <QMessageBox>

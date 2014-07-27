@@ -16,8 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "headerFiles/dockWidgets/ConsoleInterface.h"
-#include "headerFiles/Main.h"
+#include "ConsoleInterface.h"
+#include "Main.h"
 
 ConsoleInterface::ConsoleInterface()
     : QWidget()
@@ -33,11 +33,11 @@ ConsoleInterface::ConsoleInterface()
 
     connect(input, SIGNAL(returnPressed()), this, SLOT(handleUserInput()));
 
-    print("fast-bit image processing tool  Copyright (C) 2010 - 2011  Jacob Dawid");
+    print("fast-bit image processing tool  Copyright (C) 2010 - 2014  Jacob Dawid");
     print("This program comes with ABSOLUTELY NO WARRANTY. This is free software,"
           " and you are welcome to redistribute it under certain conditions.");
     print("fast-bit is still in alpha stage. If you encounter any problems,"
-          " please feel free to contact us at: jacob.dawid@googlemail.com");
+          " please feel free to contact us at: jacob.dawid@cybercatalyst.net");
     print(Main::instance().translate("Console", "Ready."));
 }
 

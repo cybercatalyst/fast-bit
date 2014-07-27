@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <QtGui/QApplication>
+#include <QApplication>
 #include <QPixmap>
 #include <QSplashScreen>
 #include <QSettings>
@@ -24,9 +24,9 @@
 #include <QTranslator>
 #include <QDir>
 #include <QBitmap>
-#include "headerFiles/Main.h"
-#include "headerFiles/MainWindow.h"
-#include "headerFiles/renderers/HistogramOpenGLRenderer.h"
+#include "Main.h"
+#include "MainWindow.h"
+#include "HistogramOpenGLRenderer.h"
 
 Main Main::singleton;
 

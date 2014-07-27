@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "headerFiles/PluginManager.h"
+#include "PluginManager.h"
 #include <QLibrary>
 #include <string>
 #include <QPluginLoader>

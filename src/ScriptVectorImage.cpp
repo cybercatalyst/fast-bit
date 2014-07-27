@@ -16,9 +16,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "headerFiles/Main.h"
-#include "headerFiles/MainWindow.h"
-#include "headerFiles/scriptClasses/ScriptVectorImage.h"
+#include "Main.h"
+#include "MainWindow.h"
+#include "ScriptVectorImage.h"
 
 #include <QFile>
 

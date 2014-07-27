@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "headerFiles/scriptClasses/ScriptFile.h"
+#include "ScriptFile.h"
 
 ScriptFile::ScriptFile(QObject *parent)
     : QObject(parent)

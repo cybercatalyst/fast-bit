@@ -20,7 +20,7 @@
 #define HISTOGRAM_OPENGL_RENDERER_H
 
 #include <QVector>
-#include "headerFiles/renderers/OpenGLRenderer.h"
+#include "OpenGLRenderer.h"
 
 /**
   * \class HistogramOpenGLRenderer

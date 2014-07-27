@@ -19,7 +19,7 @@
 #ifndef SCRIPT_H
 #define SCRIPT_H
 
-#include "headerFiles/ScriptingInterface.h"
+#include "ScriptingInterface.h"
 #include <QDockWidget>
 
 class Script : public QDockWidget

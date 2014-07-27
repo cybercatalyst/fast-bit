@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "headerFiles/ScriptEdit.h"
+#include "ScriptEdit.h"
 #include <QKeyEvent>
 
 ScriptEdit::ScriptEdit(ScriptEngine *scriptEngine, QWidget *parent)

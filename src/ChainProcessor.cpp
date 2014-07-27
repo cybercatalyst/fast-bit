@@ -16,9 +16,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "headerFiles/Main.h"
-#include "headerFiles/ImageProcessor.h"
-#include "headerFiles/ChainProcessor.h"
+#include "Main.h"
+#include "ImageProcessor.h"
+#include "ChainProcessor.h"
 #include <QImage>
 
 ChainProcessor::ChainProcessor(QObject *_sender)

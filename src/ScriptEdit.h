@@ -20,8 +20,8 @@
 #define SCRIPT_EDIT_H
 
 #include <QTextEdit>
-#include "headerFiles/SyntaxHighlighter.h"
-#include "headerFiles/ScriptEngine.h"
+#include "SyntaxHighlighter.h"
+#include "ScriptEngine.h"
 
 class ScriptEdit : public QTextEdit
 {

@@ -20,7 +20,7 @@
 #define CONSOLE_H
 
 #include <QDockWidget>
-#include "headerFiles/dockWidgets/ConsoleInterface.h"
+#include "ConsoleInterface.h"
 
 class Console : public QDockWidget
 {

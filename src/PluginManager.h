@@ -19,7 +19,7 @@
 #ifndef PLUGIN_MANAGER_H
 #define PLUGIN_MANAGER_H
 
-#include "headerFiles/PluginProxy.h"
+#include "PluginProxy.h"
 #include <QString>
 #include <QObject>
 

@@ -16,8 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "headerFiles/Main.h"
-#include "headerFiles/ImageProcessor.h"
+#include "Main.h"
+#include "ImageProcessor.h"
 
 #include <QStack>
 #include <QVector>

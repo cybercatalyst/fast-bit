@@ -16,11 +16,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "headerFiles/ImageProcessor.h"
-#include "headerFiles/Main.h"
-#include "headerFiles/dockWidgets/Graph.h"
-#include "headerFiles/renderers/HistogramOpenGLRenderer.h"
-#include "headerFiles/renderers/OpenGLRenderer.h"
+#include "ImageProcessor.h"
+#include "Main.h"
+#include "Graph.h"
+#include "HistogramOpenGLRenderer.h"
+#include "OpenGLRenderer.h"
 
 #define RED             0
 #define GREEN           1

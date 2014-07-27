@@ -16,9 +16,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "headerFiles/MainWindow.h"
-#include "headerFiles/ChainProcessor.h"
-#include "headerFiles/PluginManagerDialog.h"
+#include "MainWindow.h"
+#include "ChainProcessor.h"
+#include "PluginManagerDialog.h"
 #include <QMessageBox>
 #include <QApplication>
 

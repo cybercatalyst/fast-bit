@@ -16,8 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "headerFiles/Main.h"
-#include "headerFiles/dockWidgets/Console.h"
+#include "Main.h"
+#include "Console.h"
 
 Console::Console(QWidget *parent)
     : QDockWidget(parent)

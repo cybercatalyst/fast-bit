@@ -22,7 +22,7 @@
 #include <QImage>
 #include <QStack>
 #include <QTimer>
-#include "headerFiles/renderers/OpenGLRenderer.h"
+#include "OpenGLRenderer.h"
 
 #include <math.h>
 

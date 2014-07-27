@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "headerFiles/renderers/ImageOpenGLRenderer.h"
+#include "ImageOpenGLRenderer.h"
 
 ImageOpenGLRenderer::ImageOpenGLRenderer(QWidget *parent)
     : OpenGLRenderer(parent)

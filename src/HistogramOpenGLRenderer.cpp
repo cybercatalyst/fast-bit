@@ -16,8 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "headerFiles/Main.h"
-#include "headerFiles/renderers/HistogramOpenGLRenderer.h"
+#include "Main.h"
+#include "HistogramOpenGLRenderer.h"
 #include <math.h>
 
 HistogramOpenGLRenderer::HistogramOpenGLRenderer(QWidget *parent)

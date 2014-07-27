@@ -16,8 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "headerFiles/Main.h"
-#include "headerFiles/ScriptingInterface.h"
+#include "Main.h"
+#include "ScriptingInterface.h"
 #include <QFileDialog>
 
 #define FAST_BIT_SCRIPT ".fast-bit-script"

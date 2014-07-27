@@ -27,8 +27,8 @@
 #include <QMainWindow>
 #include <QPushButton>
 
-#include "headerFiles/ScriptEngine.h"
-#include "headerFiles/ScriptEdit.h"
+#include "ScriptEngine.h"
+#include "ScriptEdit.h"
 
 class ScriptingInterface : public QMainWindow
 {

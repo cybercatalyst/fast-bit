@@ -27,7 +27,7 @@
 #include <QRgb>
 #include <QMatrix>
 #include <QHash>
-#include "headerFiles/renderers/HistogramOpenGLRenderer.h"
+#include "HistogramOpenGLRenderer.h"
 
 /**
   * \class ImageProcessor

@@ -22,8 +22,8 @@
 #include <QDockWidget>
 #include <QTabWidget>
 
-#include "headerFiles/renderers/OpenGLRenderer.h"
-#include "headerFiles/renderers/HistogramOpenGLRenderer.h"
+#include "OpenGLRenderer.h"
+#include "HistogramOpenGLRenderer.h"
 
 class Graph : public QDockWidget
 {

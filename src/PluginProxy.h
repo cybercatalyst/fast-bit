@@ -19,7 +19,7 @@
 #ifndef PLUGIN_PROXY_H
 #define PLUGIN_PROXY_H
 
-#include "headerFiles/PluginInterface.h"
+#include "PluginInterface.h"
 
 class PluginProxy
 {

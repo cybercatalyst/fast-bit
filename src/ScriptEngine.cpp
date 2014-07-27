@@ -16,11 +16,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "headerFiles/Main.h"
-#include "headerFiles/ScriptEngine.h"
-#include "headerFiles/scriptClasses/ScriptImage.h"
-#include "headerFiles/scriptClasses/ScriptVectorImage.h"
-#include "headerFiles/scriptClasses/ScriptFile.h"
+#include "Main.h"
+#include "ScriptEngine.h"
+#include "ScriptImage.h"
+#include "ScriptVectorImage.h"
+#include "ScriptFile.h"
 #include <QFile>
 #include <QScriptProgram>
 #include <math.h>
